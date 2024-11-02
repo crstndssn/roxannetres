@@ -1,0 +1,362 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../../app/alterocio/resources/typo/Helvetica-CE-Medium.otf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gayathri:wght@100;400;700&family=Iceberg&display=swap');
+
+
+.bg__bejuco {
+  background-color: #133131;
+}
+
+.bejuco {
+  background-color: #133131;
+  font-family: 'Helvetica', sans-serif;
+  margin: auto 0;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+
+  @include media('tablet') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // grid-template-columns: repeat(4, 1fr);
+    // grid-template-rows: repeat(5, 1fr);
+    // grid-column-gap: 0px;
+    // grid-row-gap: 0px;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    @include media('tablet') {
+      flex-direction: row;
+      width: 95%;
+      gap: 2rem;
+    }
+
+    a {
+      width: 90%;
+      font-size: 1.7rem;
+      line-height: 3rem;
+      margin: 6px 0;
+    }
+  }
+
+  // B E J U J Ó N
+  &__bejucote {
+    width: 100%;
+    grid-area: 1/1/5/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 110px;
+    line-height: 100px;
+    font-family: 'Iceberg', sans-serif;
+    color: #957d4f;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include media('tablet') {
+      font-size: 23vh;
+      line-height: 150px;
+    }
+
+    &--argumento {
+      font-size: 70px;
+      line-height: 70px;
+      font-family: 'Iceberg', sans-serif;
+      color: #957d4f;
+      text-transform: uppercase;
+      margin: 0;
+      margin-top: 0.5rem;
+
+      @include media('tablet') {
+        font-size: 23vh;
+        line-height: 150px;
+      }
+    }
+
+    &--tropicos {
+      font-size: 85px;
+      line-height: 90px;
+      padding-top: 0rem;
+      font-family: "Iceberg", sans-serif;
+      color: #957d4f;
+      text-transform: uppercase;
+      margin: 0;
+
+      @include media('tablet') {
+        font-size: 23vh;
+        line-height: 150px;
+      }
+    }
+
+    &--lucas {
+      font-size: 128px;
+      line-height: 120px;
+      font-family: "Iceberg", sans-serif;
+      color: #957d4f;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    &--small {
+      color: #957d4f;
+      text-transform: uppercase;
+      font-family: "Iceberg", sans-serif;
+      font-size: 23px;
+      margin: 0;
+
+      @include media('tablet') {
+        font-size: 5vh;
+      }
+    }
+  }
+
+
+
+
+  &__bejucos {
+    width: 100%;
+    grid-area: 1 / 3 / 5 / 5;
+    margin: 1rem auto;
+
+    @include media('tablet') {
+      margin: 1rem auto;
+    }
+
+  }
+
+  &__bejuquitos {
+    grid-area: 5 / 1 / 6 / 5;
+
+    &--item {
+      color: #957d4f;
+      border: #957d4f 2px solid;
+      background-color: #133131;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Iceberg", sans-serif;
+      font-size: 30px;
+      opacity: 0.5;
+    }
+
+    &--item-a {
+      color: #957d4f;
+      border: #957d4f 2px solid;
+      background-color: #133131;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Iceberg", sans-serif;
+      font-size: 30px;
+      opacity: 1;
+    }
+  }
+
+  &__description {
+    font-weight: 200;
+    font-size: 60px;
+    line-height: 50px;
+    letter-spacing: -2px;
+    margin: 0 3.8rem;
+    padding-top: 2rem;
+    color: #676767;
+    font-family: "Helvetica";
+  }
+
+  &__blur {
+    position: absolute;
+    z-index: 0;
+
+    img {
+      filter: blur(3px);
+    }
+  }
+
+  &__slide {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    margin: 2rem 3.8rem;
+
+    &--content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+
+    img {
+      z-index: 1;
+    }
+  }
+
+  .swiper {
+    width: 90% !important;
+    height: 100%;
+    margin-top: 20px;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  body {
+    background: #000;
+    color: #000;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-slide {
+    width: 60%;
+    height: auto;
+    width: 100% !important;
+    min-height: 200px;
+  }
+
+  .swiper-slide:nth-child(2n) {
+    width: 40%;
+  }
+
+  .swiper-slide:nth-child(3n) {
+    width: 20%;
+  }
+
+
+  &__lucas {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+
+    p {
+      font-weight: 200;
+      font-size: 42px;
+      line-height: 42px;
+      letter-spacing: -1px;
+      color: #969696;
+      font-family: "Iceberg";
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    img {
+      width: 80%;
+      @include media('tablet') {
+        width: 30%;
+      }
+    }
+
+    details {
+      width: 100%;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0;
+      }
+    }
+
+    summary {
+      border-bottom: #957d4f 1px solid;
+      color: #957d4f;
+      font-family: "Iceberg";
+      padding: 0.5rem 0;
+      font-size: 30px;
+    }
+
+  }
+
+  &__argumento {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--main {
+      font-weight: 200;
+      font-size: 45px;
+      line-height: 50px;
+      letter-spacing: -3px;
+      color: #969696;
+      font-family: "Iceberg";
+      text-align: center;
+      margin: 1rem 0 0;
+    }
+
+    &--second {
+      font-weight: 200;
+      font-size: 25px;
+      line-height: 28px;
+      letter-spacing: -1px;
+      color: #969696;
+      font-family: "Helvetica";
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+
+}

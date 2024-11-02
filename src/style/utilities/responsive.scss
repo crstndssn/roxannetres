@@ -1,0 +1,72 @@
+$breakpoints: (
+    'phone': ( min-width: 420px ),
+    'tablet': ( min-width: 720px ),
+    'tablet-l': ( min-width: 992px ),
+    'desktop-s': ( min-width: 1200px ),
+    'desktop-m': ( min-width: 1440px ),
+    'desktop-l': ( min-width: 1600px )
+) !default;
+
+@mixin media($breakpoint) {
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+   @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    + "Available breakpoints are: #{map-keys($breakpoints)}.";
+   } 
+}
+
+@mixin media-custom($media) {
+  @media (min-width: $media) {
+    @content;
+  }
+}
+
+@mixin media-custom-max($media) {
+  @media (max-width: $media) {
+    @content;
+  }
+}
+
+.card__content-image {
+  overflow-x: auto;
+  width: 100%;
+  display: flex;
+
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.post {
+  overflow-x: scroll !important;
+}
+
+.jumm {
+  
+  width: 100% !important;
+  display: flex;
+  height: 420px;  max-height: 420px;
+}
+
+.card__image {
+width: 100%;
+height: auto;
+}
+
+.card__content-image {
+  min-height: 420px !important;
+    width: 100% !important;
+}
+
+.post__card  img{
+  width: auto !important;
+  height: fit-content !important;
+  max-height: 420px !important;
+}

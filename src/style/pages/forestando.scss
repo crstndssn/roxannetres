@@ -1,0 +1,259 @@
+.bg__forestando {
+  background-color: $organic;
+}
+
+.forestando {
+  background-color: $organic;
+  color: $brand;
+
+  &__header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 92vh;
+
+    @include media('tablet') {
+      min-height: 87vh;
+    }
+
+    &--interior {
+      display: none;
+
+      @include media('tablet') {
+        width: 100%;
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: end;
+        min-height: 90vh;
+      }
+
+      img {
+        max-height: 100vh;
+        max-width: 100%;
+        width: 50%;
+
+        @include media('tablet-l') {
+          width: 40%;
+          max-height: max-content;
+        }
+      }
+    }
+
+    &--orquideas {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      justify-content: space-between;
+      align-items: end;
+
+      @include media('tablet') {
+        display: none;
+      }
+
+      img {
+        max-height: 100vh;
+        max-width: 100%;
+        width: 100vh;
+        height: auto;
+      }
+    }
+
+    &--text {
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 10rem;
+
+      &-h1 {
+        font-size: 50px;
+        font-weight: 400;
+        letter-spacing: -3px;
+        margin: 0;
+
+        @include media('tablet') {
+          line-height: 96px;
+        }
+      }
+
+      &-p {
+        font-size: 20px;
+        margin: 0;
+
+        @include media('tablet') {
+          font-size: 24px;
+          margin-top: 0;
+        }
+      }
+
+      &-btn {
+        border: 2px solid $brand;
+        color: $brand;
+        margin-top: .8rem;
+        padding: 4px 13px;
+        border-radius: 100px;
+        font-size: 18px;
+        transition: all ease .1s;
+
+        @include media('tablet') {
+          font-size: 24px;
+          padding: 4px 20px;
+          font-weight: 400;
+          margin-top: 1rem;
+        }
+      }
+
+      &-btn:hover {
+        border: 2px solid $ando;
+        color: $ando;
+      }
+
+      @include media('tablet') {
+        justify-content: center;
+        top: 0;
+        margin-bottom: 4rem;
+
+        h1 {
+          font-size: 96px;
+        }
+
+        p {
+          font-size: 30px;
+        }
+      }
+    }
+
+  }
+
+  &__blog {
+    background-color: $brand;
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+      color: $leave;
+      margin: 0;
+      font-weight: 500;
+      font-size: 3rem;
+      margin-bottom: .5rem;
+    }
+
+    &--soon {
+      font-size: 15px;
+      color: $leave;
+      margin: 0;
+      padding: .2rem 1rem;
+      border: 1px solid $leave;
+      border-radius: 20px;
+      width: fit-content;
+      font-weight: 300;
+    }
+
+  }
+
+  &__gallery {
+    background-color: $leave;
+
+    h2 {
+      color: $brand;
+      margin: 0;
+      font-weight: 500;
+      margin-left: 1rem;
+      padding-top: 1rem;
+
+      @include media('tablet') {
+        margin-left: 2rem;
+      }
+    }
+
+    &--container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0 1rem;
+      gap: .4rem;
+      margin-top: .5rem;
+
+      @include media('tablet') {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 0 2rem;
+      }
+    }
+
+    .card__content-image {
+      img {
+        aspect-ratio: 2/2;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2rem 3rem 2rem;
+  }
+
+  //  C O N F I G
+  &__add {
+    width: 100%;
+    display: flex;
+    background-color: $leave;
+
+    .load {
+      color: $brand;
+    }
+
+    &--image {
+      width: 50%;
+    }
+
+    &--text {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      margin-top: 1rem;
+
+      &-title, &-cientifico, &-uso, &-description {
+        background-color: $leave;
+        outline-color: $brand;
+        font-size: 20px;
+        color: $brand;
+        padding: 0.5rem;
+      }
+
+      &-boxes {
+        .box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          background: #EBF1E7;
+          padding: 1rem;
+          img {
+            width: 40px;
+          }
+        }
+      }
+    }
+
+    &--publish {
+      background-color: $brand;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+  }
+
+}

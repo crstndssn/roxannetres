@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.alterocio {
+
+	font-family: 'Poppins' !important;
+	margin: 1rem 0rem 5rem 0rem;
+
+  @include media('tablet') {
+    margin: 0 2rem;
+  }
+
+  &__summary {
+    font-weight: 300;
+    list-style: none;
+    padding: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+		padding: 0 10px;
+
+    @include media('tablet') { 
+      margin-bottom: 0.5rem;
+      padding: 0.3rem 0;
+    }
+  }
+
+  &__details[open] summary~* {
+    animation: open 0.3s ease-in-out;
+  }
+
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  &__details &__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  &__details &__summary:after {
+    content: "+";
+    position: absolute;
+    font-weight: 300;
+    font-size: 50px;
+    right: 25px;
+    transform-origin: center;
+    transition: 200ms linear;
+
+    @include media('tablet') {
+      font-size: 70px;
+      right: 40px;
+      top: auto;
+    }
+  }
+
+  &__details[open] summary:after {
+    transform: rotate(45deg);
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+
+    &--border {
+      border-bottom: 1px solid white;
+    }
+
+    &--genesis {
+      color: $genesis;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $genesis;
+      }
+
+      .alterocio__card--summary:after {
+        color: $genesis;
+      }
+
+      .alterocio__card--header::after {
+        color: $genesis;
+      }
+
+      .alterocio__card--header:hover {
+        color: $genesis;
+        cursor: pointer;
+      }
+    }
+
+    &--mercurio {
+      color: $mercurio;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $mercurio;
+      }
+
+      .alterocio__card--summary:after {
+        color: $mercurio;
+      }
+
+      .alterocio__card--header::after {
+        color: $mercurio;
+      }
+      .alterocio__card--header:hover {
+        color: $mercurio;
+        cursor: pointer;
+      }
+    }
+
+    &--blue {
+      color: $blue;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $blue;
+      }
+
+      .alterocio__card--summary:after {
+        color: $blue;
+      }
+
+      .alterocio__card--header::after {
+        color: $blue;
+      }
+      .alterocio__card--header:hover {
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+
+    &--semillas {
+      color: $semillas;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $semillas;
+      }
+
+      .alterocio__card--summary:after {
+        color: $semillas;
+      }
+
+      .alterocio__card--header::after {
+        color: $semillas;
+      }
+      .alterocio__card--header:hover {
+        color: $semillas;
+        cursor: pointer;
+      }
+    }
+
+    &--florecer {
+      color: $florecer;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $florecer;
+      }
+
+      .alterocio__card--summary:after {
+        color: $florecer;
+      }
+
+      .alterocio__card--header::after {
+        color: $florecer;
+      }
+      .alterocio__card--header:hover {
+        color: $florecer;
+        cursor: pointer;
+      }
+    }
+
+    &--viento {
+      color: $viento;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $viento;
+      }
+
+      .alterocio__card--summary:after {
+        color: $viento;
+      }
+
+      .alterocio__card--header::after {
+        color: $viento;
+      }
+      .alterocio__card--header:hover {
+        color: $viento;
+        cursor: pointer;
+      }
+    }
+
+    &--futuro {
+      color: $futuro;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $futuro;
+      }
+
+      .alterocio__card--summary:after {
+        color: $futuro;
+      }
+
+      .alterocio__card--header::after {
+        color: $futuro;
+      }
+      .alterocio__card--header:hover {
+        color: $futuro;
+        cursor: pointer;
+      }
+    }
+
+    &--ahora {
+      color: $ahora;
+      margin: 0;
+      font-size: 40px;
+      padding-bottom: 4px;
+      letter-spacing: -3px;
+      font-weight: 300;
+      @include media("tablet") {
+        font-size: 50px;
+      }
+
+      .alterocio__card--summary:first-child {
+        border-bottom: 2px solid $ahora;
+      }
+
+      .alterocio__card--summary:after {
+        color: $ahora;
+      }
+
+      .alterocio__card--header::after {
+        color: $ahora;
+      }
+      .alterocio__card--header:hover {
+        color: $ahora;
+        cursor: pointer;
+      }
+    }
+
+
+    &--header {
+      margin-bottom: 0;
+      flex-direction: column;
+      list-style-type: square;
+      font-size: 33px;
+      color: white;
+      font-weight: 400;
+      margin: 0;
+      line-height: 33px;
+      list-style: revert;
+      padding: .5rem;
+	
+    }
+    &--header::marker {
+      font-size: 22px;
+			margin-bottom: 5px;
+    }
+
+    &--grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      @include media('tablet') {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+  }
+
+  audio {
+    width: 100%;
+    height: 32px;
+
+    @include media('tablet') {
+      width: 420px;
+    }
+  }
+
+}
+
+.genesis__section {
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: black;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // .swiper-slide img {
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   max-height: 420px;
+  //   object-fit: cover;
+  // }
+
+  // .card__content-image {
+  //   min-height: 420px !important;
+  //   width: 100% !important;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   background: black;
+  // }
+
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: white !important;
+}
+
+.swiper-pagination-bullet-active-next .swiper-pagination-bullet-active-prev {
+  background-color: white !important;
+}
+
+.alterocio__card--momento[open] > .alterocio__card--header {
+	border-bottom: 2px $ahora solid;
+	color: $ahora;
+}
+
+
+.alterocio__card--momento[open] {
+	position: fixed;
+	top: 0;
+	bottom: 50px;
+	z-index: 999;
+	max-height: 100vh;
+	background-color: #000;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: flex;
+	transition-property: transform;
+	box-sizing: content-box;
+	max-height: 80vh;
+}
+
+.alterocio__card--buttons {
+	position: absolute;
+	top: -10px;
+	right: 10px;
+	z-index: 9;
+}
+
+.alterocio__card--buttons button {
+	border: #fff solid 1px;
+	margin-left: 8px;
+	padding: 5px 10px;
+	color: #fff;
+	font-family: 'Poppins';
+	background: transparent;
+	border-radius: 8px;
+	font-size: 15px;
+	text-transform: lowercase;
+}
+

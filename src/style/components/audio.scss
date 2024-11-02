@@ -1,0 +1,82 @@
+.audio-player {
+	position: fixed;
+	bottom: 0;
+	/* right: 20px; */
+	width: 100%;
+	background-color: #333;
+	/* border: 2px solid #4caf50; */
+	/* border-radius: 15px; */
+	/* padding: 20px; */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 1000;
+	color: white;
+}
+
+.controls button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.controls button:hover {
+  background-color: #45a049;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #555;
+  border-radius: 5px;
+  margin: 0 15px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+  width: 0;
+}
+
+.playercomponent {
+	display: flex;
+	justify-content: space-between;
+}
+
+.playercomponent__controls {
+	color: white;
+	display: flex;
+}
+
+.playercomponent h4 {
+	margin: 0;
+}
+
+.player h4 {
+	margin: 0;
+}
+
+.playercomponent__title {
+	width: 100%;
+	padding: 0px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	gap: 5px;
+}
+
+.playercomponent__controls--play, .playercomponent__controls--pause {
+	width: 30px;
+	margin-left: .8rem;
+}
+
+.playercomponent__controls--stop {
+	width: 30px;
+}

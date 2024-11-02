@@ -1,0 +1,74 @@
+$black: #000;
+$white: #fff;
+
+// A L T E R O C I O
+$genesis: #bd1616;
+$mercurio: #8E4FD1;
+$blue: #3b64bc;
+$semillas: #86A54F;
+$florecer: #dfbd40;
+$viento: #4f9fd1;
+$futuro: #d14f6d;
+$ahora: #2c7d37;
+
+// K A M
+$florecer: #FECD27;
+$velvet: #ED0000;
+
+
+// F O R E S T A N D O
+$eco: rgba(72, 131, 80, 0.05);
+$soft: #E8EDE9;
+$brand: #36723E;
+$organic: #FFFFFA;
+$nature: #458055;
+$ando: #7FA25B;
+$leave: #FBFAF3;
+
+
+// R O X Y
+
+// B E J U C O
+
+
+
+
+.text-nature {
+  color: $brand;
+}
+
+.text-ando {
+  color: $ando;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+}
+
+h1 {
+  letter-spacing: -2px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+p {
+  font-size: 20px;
+}

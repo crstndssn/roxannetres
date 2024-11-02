@@ -1,0 +1,202 @@
+.pricing {
+  border: 1px solid white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  @include media("tablet") {
+    margin: 2rem 7rem;
+  }
+
+  div:first-child {
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+  }
+
+  p {
+    font-size: 50px;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  h3 {
+    margin: 1rem 0;
+    font-weight: 400;
+  }
+
+  &__less {
+    font-size: 18px !important;
+    color: rgb(146, 146, 146);
+    margin-bottom: 1rem !important;
+  }
+
+  &__button {
+    width: 100%;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    font-size: 17px;
+    padding: 0.8rem 0;
+    border-radius: 10px;
+    margin-top: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease .2s;
+  }
+
+  &__button:hover {
+    background-color: white;
+    color: black;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 18px;
+      height: 18px;
+      margin-right: 7px;
+      background: white;
+      border-radius: 100%;
+      padding: 1px;
+    }
+  }
+}
+
+.lock {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+	padding: 0 10px;
+
+  &__title {
+    color: #bd1616;
+    margin: 0;
+    font-size: 40px;
+    padding-bottom: 4px;
+    letter-spacing: -3px;
+    font-weight: 300;
+
+    @include media("tablet") {
+      font-size: 50px;
+    }
+  }
+
+  &__button {
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-top: 11px;
+
+    a {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+
+      @include media("tablet") {
+        font-size: 16px;
+      }
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+      color: #bd1616;
+      margin-left: 3px;
+      margin-bottom: 1px;
+
+      @include media("tablet") {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+}
+
+.genesis {
+  border-bottom: 2px solid $genesis;
+
+  .lock__title {
+    color: $genesis;
+  }
+}
+
+.mercurio {
+  border-bottom: 2px solid $mercurio;
+
+  .lock__title {
+    color: $mercurio;
+  }
+}
+
+.blue {
+  border-bottom: 2px solid $blue;
+
+  .lock__title {
+    color: $blue;
+  }
+}
+
+.semillas {
+  border-bottom: 2px solid $semillas;
+
+  .lock__title {
+    color: $semillas;
+  }
+}
+
+.florecer {
+  border-bottom: 2px solid $florecer;
+
+  .lock__title {
+    color: $florecer;
+  }
+}
+
+.viento {
+  border-bottom: 2px solid $viento;
+
+  .lock__title {
+    color: $viento;
+  }
+}
+
+.futuro {
+  border-bottom: 2px solid $futuro;
+
+  .lock__title {
+    color: $futuro;
+  }
+}
+
+.ahora {
+  border-bottom: 2px solid $ahora;
+
+  .lock__title {
+    color: $ahora;
+  }
+}
+
+
+
+// .lock-forestando {
+//   display: flex;
+//   opacity: 0.6;
+
+//   img {
+//     width: 30px;
+//     height: 30px;
+//     margin-left: 5px;
+//   }
+// }
