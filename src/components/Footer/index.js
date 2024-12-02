@@ -17,7 +17,7 @@ const Footer = () => {
 
 			<div className='container mx-auto w-full flex justify-between py-3'>
 				<div className='flex justify-center items-center'>
-					hecho con &hearts; por <a href='#' class='underline ml-1'>cristian dussán</a>
+					hecho con &hearts; por <a href='#' className='underline ml-1'>cristian dussán</a>
 				</div>
 				<span className='rounded-full border border-white py-1 px-2'>v0.20</span>
 			</div>

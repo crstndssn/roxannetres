@@ -18,6 +18,10 @@ const galeria = () => {
 				<div className='bg-[#FFE6F9] border-2 border-[#ED0000] min-h-[180px] rounded-lg p-7 flex justify-center items-center opacity-50'>
 					<h2 className='roxy-font  m-0 mb-7 text-[90px] leading-[20px] uppercase text-[#ED0000]'>roxy</h2>
 				</div>
+
+				<div className="border border-white rounded-full">
+					<p className="text-white py-2 text-center">próximamente</p>
+				</div>
 			</div>
 		</div>
 	)

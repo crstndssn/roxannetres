@@ -79,8 +79,6 @@ const AllAlterocio = () => {
                     <img onClick={(id) => { deletePost(item.id) }} src={delete_post} className="edit__icon" alt="delete" />
                   </div>
                 </div>
-
-
               </div>
             ))
           )
