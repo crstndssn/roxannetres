@@ -65,11 +65,11 @@ const Header = () => {
 				</button>
 			</nav>
 
-			<nav className=" w-max py-3 px-8 border border-solid border-dark rounded-full font-medium  items-center hidden sm:flex
-       bg-[#FFFFF9] backdrop-blur-sm z-50">
-				<Link href="/" className="mr-2">inicio</Link>
-				<Link href="/imagenes" className="mx-2">imágenes</Link>
-				<Link href="/categories/all" className="mx-2">historias</Link>
+			<nav className=" w-max py-3 px-8 border border-black dark:border-amarillo rounded-full font-medium  items-center hidden sm:flex
+       bg-amarillo dark:bg-black backdrop-blur-sm z-50">
+				<Link href="/" className="mr-2 text-black dark:text-amarillo">inicio</Link>
+				<Link href="/imagenes" className="mx-2 text-black dark:text-amarillo">imágenes</Link>
+				<Link href="/categories/all" className="mx-2 text-black dark:text-amarillo">historias</Link>
 				<button onClick={() => setMode(mode === "light" ? "dark" : "light")}
 					className={cx("w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1", mode === "light" ? "bg-dark text-light" :
 						"bg-light text-dark")}

@@ -4,7 +4,7 @@ import React from 'react'
 const Imagenes = () => {
 	return (
 		<div className='container mx-auto flex flex-col px-4 py-4 md:py-10 md:px-0 overflow-x-hidden'>
-			<h2 className='text-3xl text-amarillo font-semibold mb-3'>imágenes</h2>
+			<h2 className='text-3xl text-black dark:text-amarillo font-semibold mb-3'>imágenes</h2>
 			<div className='w-full flex gap-5 md:gap-10 overflow-auto pb-3 opacity-50'>
 
 				<div className='bg-[#ED0000] text-black min-h-[180px] min-w-[280px] border-2 border-black rounded-lg p-7 flex justify-center items-center'>
@@ -21,7 +21,7 @@ const Imagenes = () => {
 					<h2 className='roxy-font  m-0 mb-7 text-[90px] leading-[20px] uppercase text-[#ED0000]'>roxy</h2>
 				</div>
 			</div>
-			<Link href={`/imagenes`} className='text-lg text-amarillo font-semibold mb-3 text-center py-1 pb-[7px] border border-white mt-3 rounded-lg'>ver todas</Link>
+			<Link href={`/imagenes`} className='text-lg text-black dark:text-amarillo font-semibold mb-3 text-center py-1 pb-[7px] border border-black dark:border-white mt-3 rounded-lg'>ver todas</Link>
 		</div>
 	)
 }

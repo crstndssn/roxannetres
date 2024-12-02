@@ -13,13 +13,13 @@ const Footer = () => {
 	const onSubmit = data => console.log(data);
 	console.log(errors);
 	return (
-		<footer className='border-t-2 border-black dark:border-white bg-white dark:bg-black flex flex-col items-center text-black dark:text-light'>
+		<footer className='border-t-2 border-black dark:border-white bg-[#fffff9] dark:bg-black flex flex-col items-center text-black dark:text-light'>
 
-			<div className='w-full flex justify-between py-3 px-4'>
+			<div className='container mx-auto w-full flex justify-between py-3'>
 				<div className='flex justify-center items-center'>
 					hecho con &hearts; por <a href='#' class='underline ml-1'>cristian dussán</a>
 				</div>
-				<span className='rounded-lg border border-white py-1 px-2'>v0.21</span>
+				<span className='rounded-full border border-white py-1 px-2'>v0.20</span>
 			</div>
 		</footer>
 	)
