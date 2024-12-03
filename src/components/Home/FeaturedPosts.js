@@ -10,15 +10,15 @@ const FeaturedPosts = ({ blogs }) => {
 			<h2 className='w-full inline-block font-bold capitalize text-4xl'>Featured Posts</h2>
 
 			<div className='grid grid-cols-2 grid-rows-2 gap-6 mt-16'>
-				<article className='col-span-1 row-span-2 relative'>
+				<div className='col-span-1 row-span-2 relative'>
 					<BlogLayoutOne blog={sortedBlogs[0]} />
-				</article>
-				<article className='col-span-1 row-span-1 relative'>
+				</div>
+				<div className='col-span-1 row-span-1 relative'>
 					<BlogLayoutTwo blog={sortedBlogs[0]} />
-				</article>
-				<article className='col-span-1 row-span-1 relative'>
+				</div>
+				<div className='col-span-1 row-span-1 relative'>
 					<BlogLayoutTwo blog={sortedBlogs[0]} />
-				</article>
+				</div>
 			</div>
 		</section>
 	)

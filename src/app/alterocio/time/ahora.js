@@ -1,16 +1,16 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import { store } from '../../app/firebase'
+import { store } from '../../firebase'
 import Link from 'next/link';
 
-import '../../style/app.scss'
+import '../../../style/app.scss'
 
-import Card from './Card'
+import Card from '../Card'
 
-import inmune_n from './resources/songs/inmune.mp3'
-import q_lindo_es_el_sol from './resources/songs/que_lindo_es_el_sol.mp3'
-import wish_you_were_here from './resources/songs/wish_you_were_here.mp3'
+import inmune_n from '../resources/songs/inmune.mp3'
+import q_lindo_es_el_sol from '../resources/songs/que_lindo_es_el_sol.mp3'
+import wish_you_were_here from '../resources/songs/wish_you_were_here.mp3'
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,6 +20,8 @@ import 'swiper/css/free-mode';
 // Si necesitas otros módulos (como Navigation, Pagination, etc.), importa también su CSS
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import ViewModeButtons from '@/src/components/Imagenes/ViewModeButtons';
+import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
 
 
 const Ahora = ({ setCurrentSong, setColors, id }) => {
@@ -59,7 +61,6 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
 		});
 	};
 
-
 	const handleClickMomento = () => {
     setCurrentSong({
       title: 'Inmune',
@@ -71,7 +72,7 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
 	const handleClickParaiso = () => {
     setCurrentSong({
       title: 'Inmune',
-      url: inmune_n
+      url: q_lindo_es_el_sol
     });
   };
 
@@ -90,14 +91,29 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
 
       <summary className='alterocio__card--summary alterocio__summary'>ahora</summary>
 
+      <DynamicDetails
+        title="momento"
+        handleClick={handleClickMomento}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        data={inmune}
+        className="alterocio__card--border alterocio__card--momento"
+      />
+
+      <DynamicDetails
+        title="qlees"
+        handleClick={handleClickParaiso}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        data={qlees}
+        className="alterocio__card--border alterocio__card--momento"
+      />
+
       {/*  momento */}
       <details onClick={handleClickMomento} className='alterocio__card--border alterocio__card--momento'>
         <summary className='alterocio__card--header'>momento</summary>
 
-        <div className='alterocio__card--buttons'>
-          <button onClick={() => setViewMode('list')}>Lista</button>
-          <button onClick={() => setViewMode('grid')}>Slider</button>
-        </div>
+        <ViewModeButtons setViewMode={setViewMode} />
     
         <div className='alterocio__card--grid'
 						style={{
@@ -144,63 +160,58 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
         </div>
       </details>
 
-      {/* paraiso */}
-      <details onClick={handleClickParaiso} className='alterocio__card--border'>
-        <summary className='alterocio__card--header'>paraíso</summary>
-        <audio src={q_lindo_es_el_sol} controls preload="none"></audio>
-        <div className='alterocio__card--grid'>
-          {
-            qlees.length !== 0 ?
-              (qlees.map(item => (
+      {/*  momento */}
+      <details onClick={handleClickMomento} className='alterocio__card--border alterocio__card--momento'>
+        <summary className='alterocio__card--header'>momento</summary>
 
-                <Card
-                  images={item.imageLinks}
-                  title={item.title}
-                  category={item.category
-                  } />
-
-              ))) : (<div>loading...</div>)
-          }
+        <ViewModeButtons setViewMode={setViewMode} />
+    
+        <div className='alterocio__card--grid'
+						style={{
+							height: '100%',
+							overflowY: 'auto',
+							padding: '10px',
+						}}
+				>
+						{viewMode === 'grid' ? (
+          <Swiper
+            slidesPerView={'auto'}
+            centeredSlides={true}
+            spaceBetween={0}
+            pagination={{
+              clickable: true,
+            }}
+            freeMode={true}
+            className="mySwiper"
+            style={{ height: '100%' }}
+          >
+            {inmune.length !== 0 ? (
+              inmune.map(item => (
+                <SwiperSlide key={item.id}>
+                  <Card images={item.imageLinks} title={item.title} category={item.category} />
+                </SwiperSlide>
+              ))
+            ) : (
+              <div>loading...</div>
+            )}
+          </Swiper>
+        ) : (
+          <div className="listView">
+            {inmune.length !== 0 ? (
+              inmune.map(item => (
+                <div key={item.id} className="listView__item grid grid-cols-3">
+                  <Card images={item.imageLinks} title={item.title} category={item.category} />
+                </div>
+              ))
+            ) : (
+              <div>loading...</div>
+            )}
+          </div>
+        )}
         </div>
       </details>
 
-      {/* cielo */}
-      <details onClick={handleClickCielo} className='alterocio__card--border alterocio__card--cielo'>
-        <summary className='alterocio__card--header'>cielo</summary>
-        <audio src={wish_you_were_here} controls preload="none"></audio>
-        <div className='alterocio__card--grid'>
-          {
-            wywh.length !== 0 ?
-              (wywh.map(item => (
-                <Card
-                  images={item.imageLinks}
-                  title={item.title}
-                  category={item.category
-                  } />
 
-              ))) : (<div>loading...</div>)
-          }
-        </div>
-      </details>
-
-      {/* cielo */}
-      <details onClick={handleClickCielo} className='alterocio__card--border'>
-        <summary className='alterocio__card--header'>cielo</summary>
-        <audio src={wish_you_were_here} controls preload="none"></audio>
-        <div className='alterocio__card--grid'>
-          {
-            wywh.length !== 0 ?
-              (wywh.map(item => (
-                <Card
-                  images={item.imageLinks}
-                  title={item.title}
-                  category={item.category
-                  } />
-
-              ))) : (<div>loading...</div>)
-          }
-        </div>
-      </details>
     </details>
   )
 }

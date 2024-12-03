@@ -387,8 +387,8 @@
 }
 
 .alterocio__card--momento[open] > .alterocio__card--header {
-	border-bottom: 2px $ahora solid;
-	color: $ahora;
+	border-bottom: 2px white solid;
+	color: $white;
 }
 
 
@@ -435,12 +435,6 @@
 	max-height: 80vh;
 }
 
-.alterocio__card--buttons {
-	position: absolute;
-	top: -10px;
-	right: 10px;
-	z-index: 9;
-}
 
 .alterocio__card--buttons button {
 	border: #fff solid 1px;

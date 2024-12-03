@@ -13,7 +13,7 @@ const RenderMdx = ({blog}) => {
     const MDXContent = useMDXComponent(blog.body.code)
 
   return (
-    <div className='text-black dark:text-amarillo text-lg pb-10
+    <div className='MDXContent container mx-auto text-black dark:text-amarillo text-lg pb-10
 		first-letter:uppercase
 		first-letter:font-semibold
     '> 

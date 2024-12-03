@@ -11,8 +11,8 @@ const HomeCoverSection = ({ blogs }) => {
 	const blog = sortedBlogs[0];
 
 	return (
-		<Link href={blog.url} className='w-full inline-block'>
-			<article className='flex flex-col items-start justify-end relative h-[33vh] md:h-[50vh]'>
+		<div className='w-full inline-block'>
+			<div className='flex flex-col items-start justify-end relative h-[33vh] md:h-[50vh]'>
 				<div className='absolute top-0 left-0 bottom-0 right-0 h-full z-0' />
 				<Image src={blog.image.replace("../../../public", "")}
 					alt={blog.title}
@@ -27,8 +27,8 @@ const HomeCoverSection = ({ blogs }) => {
 						</h1>
 					</Link>
 				</div>
-			</article>
-		</Link>
+			</div>
+		</div>
 	)
 }
 

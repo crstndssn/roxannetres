@@ -56,19 +56,19 @@ const blogs = allBlogs.filter(blog => {
 });
 
   return (
-    <article className="flex flex-col text-dark dark:text-light">
+    <div className="flex flex-col text-dark dark:text-light pb-20">
       <div className=" px-5 sm:px-10  md:px-24  sxl:px-32 flex flex-col">
         <h1 className="font-semibold text-2xl md:text-4xl lg:text-5xl text-center">{params.slug}</h1>
       </div>
       <Categories categories={allCategories} currentSlug={params.slug} />
-      <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 grid-rows-2 gap-7 md:gap-16 mt-5 sm:mt-10 md:mt-12 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32 pb-4">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-12 mt-5 sm:mt-10">
         {blogs.map((blog, index) => (
-          <article key={index} className="col-span-1 row-span-1 relative">
+          <div key={index} className="col-span-1 row-span-1 relative">
             <BlogLayoutOne blog={blog} />
-          </article>
+          </div>
         ))}
       </div>
-    </article>
+    </div>
   );
 };
 

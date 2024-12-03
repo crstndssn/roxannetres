@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 
-import play from './resources/vectors/play__button.svg';
-import pause from './resources/vectors/pause__button.svg';
-import stop from './resources/vectors/stop__button.svg';
-
+import play from "./resources/vectors/play__button.svg";
+import pause from "./resources/vectors/pause__button.svg";
+import stop from "./resources/vectors/stop__button.svg";
+import Image from "next/image";
 
 const PlayerComponent = ({ currentSong, colors }) => {
   const audioRef = useRef(null);
@@ -21,12 +21,12 @@ const PlayerComponent = ({ currentSong, colors }) => {
 
     const audioElement = audioRef.current;
     if (audioElement) {
-      audioElement.addEventListener('timeupdate', handleTimeUpdate);
+      audioElement.addEventListener("timeupdate", handleTimeUpdate);
     }
 
     return () => {
       if (audioElement) {
-        audioElement.removeEventListener('timeupdate', handleTimeUpdate);
+        audioElement.removeEventListener("timeupdate", handleTimeUpdate);
       }
     };
   }, []);
@@ -57,64 +57,113 @@ const PlayerComponent = ({ currentSong, colors }) => {
   };
 
   return (
-    <div className='player' style={{
-			'--primary-color': colors.primary,
-    	'--secondary-color': colors.secondary,
-      position: 'fixed',
-      bottom: 0,
-      width: '100%',
-      background: colors.secondary,
-      color: colors.primary,
-			borderTop: `2px solid ${colors.primary}`,
-			paddingTop: '13px',
-			paddingBottom: '13px',
-      textAlign: 'center',
-      zIndex: 1000
-    }}>
+    <div
+      className="player"
+      style={{
+        "--primary-color": colors.primary,
+        "--secondary-color": colors.secondary,
+        position: "fixed",
+        bottom: 0,
+        width: "100%",
+        background: colors.secondary,
+        color: colors.primary,
+        borderTop: `2px solid ${colors.primary}`,
+        paddingTop: "13px",
+        paddingBottom: "13px",
+        textAlign: "center",
+        zIndex: 1000,
+      }}
+    >
       {currentSong ? (
-        <div className='playercomponent'>
+        <div className="playercomponent">
           <div className="playercomponent__controls">
             {!isPlaying ? (
-              <button onClick={playAudio} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.5em', display: 'flex', alignItems: 'center' }}>
-								<img className='playercomponent__controls--play' src={play} alt="" srcset="" />
-							</button>
+              <button
+                onClick={playAudio}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "1.5em",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Image
+                  className="playercomponent__controls--play"
+                  src={play}
+                  alt="play"
+                  srcset=""
+                />
+              </button>
             ) : (
-              <button onClick={pauseAudio} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.5em', display: 'flex', alignItems: 'center' }}>
-								<img className='playercomponent__controls--pause' src={pause} alt="" srcset="" />
-							</button>
+              <button
+                onClick={pauseAudio}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "1.5em",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Image
+                  className="playercomponent__controls--pause"
+                  src={pause}
+                  alt="pause"
+                  srcset=""
+                />
+              </button>
             )}
-            <button onClick={stopAudio} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.5em', marginLeft: '10px', display: 'flex', alignItems: 'center' }}>
-						<img className='playercomponent__controls--stop' src={stop} alt="" srcset="" />
-						</button>
+            <button
+              onClick={stopAudio}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "1.5em",
+                marginLeft: "10px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                className="playercomponent__controls--stop"
+                src={stop}
+                alt="stop"
+                srcset=""
+              />
+            </button>
           </div>
 
-					<div className='playercomponent__title'>
-					<h4 style={{ color: colors.primary }}>{currentSong.title}</h4>
-						<div
-            className="progress-bar"
-            onClick={handleProgressClick}
-            style={{
-              width: '100%',
-              height: '10px',
-              background: colors.primary,
-							border: `1px solid ${colors.primary}`,
-							borderRadius: 'none',
-              cursor: 'pointer',
-              position: 'relative',
-              margin: '0px'
-            }}
-          >
+          <div className="playercomponent__title">
+            <h4 style={{ color: colors.primary }}>{currentSong.title}</h4>
             <div
-              className="progress"
+              className="progress-bar"
+              onClick={handleProgressClick}
               style={{
-                width: `${progress}%`,
-                height: '100%',
-                background: colors.secondary
+                width: "100%",
+                height: "10px",
+                background: colors.primary,
+                border: `1px solid ${colors.primary}`,
+                borderRadius: "none",
+                cursor: "pointer",
+                position: "relative",
+                margin: "0px",
               }}
-            ></div>
+            >
+              <div
+                className="progress"
+                style={{
+                  width: `${progress}%`,
+                  height: "100%",
+                  background: colors.secondary,
+                }}
+              ></div>
+            </div>
           </div>
-					</div>
-          
+
           <audio ref={audioRef} src={currentSong.url} />
         </div>
       ) : (

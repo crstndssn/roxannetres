@@ -25,9 +25,9 @@ const RecentPosts = ({ blogs }) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 mt-16">
         {displayBlogs.map((blog, index) => (
-          <article key={index} className="col-span-1 row-span-1 relative">
+          <div key={index} className="col-span-1 row-span-1 relative">
             <BlogLayoutThree blog={blog} />
-          </article>
+          </div>
         ))}
       </div>
     </section>

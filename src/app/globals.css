@@ -132,3 +132,13 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
   background-color: #333;
   opacity: 1;
 }
+
+.MDXContent h1 {
+	font-size: 33px;
+	font-weight: 500;
+	margin: 1rem 0;
+}
+
+.MDXContent {
+	padding: 1rem 0;
+}

@@ -6,13 +6,13 @@ import { slug } from 'github-slugger';
 
 const BlogLayoutOne = ({ blog }) => {
 	return (
-		<Link href={blog.url} className='w-full min-w-[280px] inline-block roun'>
-			<article className='flex flex-col items-start justify-end relative h-[180px] md:h-[50vh]'>
+		<div className='w-full min-w-[280px] inline-block roun'>
+			<div className='flex flex-col items-start justify-end relative h-[420px] md:h-[50vh]'>
 				<div className='absolute top-0 left-0 bottom-0 right-0 h-full z-0' />
 				<Image src={blog.image.replace("../../../public", "")}
 					alt={blog.title}
 					fill
-					className="w-full h-full object-bottom object-cover -z-10 rounded-lg" />
+					className="w-full h-full object-center object-cover -z-10 rounded-lg" />
 
 				<div className='w-3/4 px-3 py-3 md:px-4 md:py-4 md:p-16 flex flex-col items-start justify-center z-0 text-light'>
 					<Tags link={`/categories/${slug(blog.tags[0])}`} name={blog.tags[0]} />
@@ -22,8 +22,8 @@ const BlogLayoutOne = ({ blog }) => {
 						</h1>
 					</Link>
 				</div>
-			</article>
-		</Link>
+			</div>
+		</div>
 	)
 }
 
