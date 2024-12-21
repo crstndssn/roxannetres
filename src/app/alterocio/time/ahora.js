@@ -15,71 +15,42 @@ import wish_you_were_here from '../resources/songs/wish_you_were_here.mp3'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-import 'swiper/css/free-mode';
-// Si necesitas otros módulos (como Navigation, Pagination, etc.), importa también su CSS
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+
 import ViewModeButtons from '@/src/components/Imagenes/ViewModeButtons';
 import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
 
 
 const Ahora = ({ setCurrentSong, setColors, id }) => {
 
-  const [inmune, setInmune] = useState('')
-  const [qlees, setQlees] = useState('')
-  const [wywh, setWywh] = useState('')
+  // GRID MODE
+  const [isOpen, setIsOpen] = useState(false);
+  const [viewMode, setViewMode] = useState("listed");
 
-  const [imageSlider, setImageSlider] = useState([])
-  const [textPost, setTextPost] = useState('')
+  // COLORS
+  const handleClickAhora = () => {
+    setColors({
+      primary: '#2c7d37',
+      secondary: '#000'
+    });
+  };
 
-  useEffect(() => {
-    const inmune = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "inmune").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setInmune(newArray)
-    }	
-    inmune()
-    const qlees = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "qlees").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setQlees(newArray)
-    }
-    qlees()
-    const wywh = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "wywh").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setWywh(newArray)
-    }
-    wywh()
-  }, [])
-
-	const handleClickAhora = () => {
-		setColors({
-			primary: '#2c7d37',
-			secondary: '#000'
-		});
-	};
-
-	const handleClickMomento = () => {
+  // MUSIC
+  const handleClickSur = () => {
     setCurrentSong({
       title: 'Inmune',
       url: inmune_n
     });
-		setIsOpen(isOpen);
+    setIsOpen(isOpen);
   };
 
-	const handleClickParaiso = () => {
+  const handleClickParaiso = () => {
     setCurrentSong({
       title: 'Inmune',
       url: q_lindo_es_el_sol
     });
   };
 
-	const [isOpen, setIsOpen] = useState(false);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-
-	const handleClickCielo = () => {
+  const handleClickCielo = () => {
     setCurrentSong({
       title: 'Inmune',
       url: inmune_n
@@ -88,132 +59,45 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
 
   return (
     <details onClick={handleClickAhora} className='genesis__section alterocio__card alterocio__card--ahora alterocio__details'>
-
-      <summary className='alterocio__card--summary alterocio__summary'>ahora</summary>
-
+      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>ahora<p className='pt-4 text-base tracking-normal'>2024</p></summary>
       <DynamicDetails
-        title="momento"
-        handleClick={handleClickMomento}
+        title="cielo"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={inmune}
-        className="alterocio__card--border alterocio__card--momento"
+        basePath="alterocio/2024ahora"
+        folderName="cielo"
       />
-
       <DynamicDetails
-        title="qlees"
-        handleClick={handleClickParaiso}
+        title="fronteras"
+        handleClick={() => console.log("Clicked fronteras")}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={qlees}
-        className="alterocio__card--border alterocio__card--momento"
+        basePath="alterocio/2024ahora"
+        folderName="fronteras"
       />
-
-      {/*  momento */}
-      <details onClick={handleClickMomento} className='alterocio__card--border alterocio__card--momento'>
-        <summary className='alterocio__card--header'>momento</summary>
-
-        <ViewModeButtons setViewMode={setViewMode} />
-    
-        <div className='alterocio__card--grid'
-						style={{
-							height: '100%',
-							overflowY: 'auto',
-							padding: '10px',
-						}}
-				>
-						{viewMode === 'grid' ? (
-          <Swiper
-            slidesPerView={'auto'}
-            centeredSlides={true}
-            spaceBetween={0}
-            pagination={{
-              clickable: true,
-            }}
-            freeMode={true}
-            className="mySwiper"
-            style={{ height: '100%' }}
-          >
-            {inmune.length !== 0 ? (
-              inmune.map(item => (
-                <SwiperSlide key={item.id}>
-                  <Card images={item.imageLinks} title={item.title} category={item.category} />
-                </SwiperSlide>
-              ))
-            ) : (
-              <div>loading...</div>
-            )}
-          </Swiper>
-        ) : (
-          <div className="listView">
-            {inmune.length !== 0 ? (
-              inmune.map(item => (
-                <div key={item.id} className="listView__item">
-                  <Card images={item.imageLinks} title={item.title} category={item.category} />
-                </div>
-              ))
-            ) : (
-              <div>loading...</div>
-            )}
-          </div>
-        )}
-        </div>
-      </details>
-
-      {/*  momento */}
-      <details onClick={handleClickMomento} className='alterocio__card--border alterocio__card--momento'>
-        <summary className='alterocio__card--header'>momento</summary>
-
-        <ViewModeButtons setViewMode={setViewMode} />
-    
-        <div className='alterocio__card--grid'
-						style={{
-							height: '100%',
-							overflowY: 'auto',
-							padding: '10px',
-						}}
-				>
-						{viewMode === 'grid' ? (
-          <Swiper
-            slidesPerView={'auto'}
-            centeredSlides={true}
-            spaceBetween={0}
-            pagination={{
-              clickable: true,
-            }}
-            freeMode={true}
-            className="mySwiper"
-            style={{ height: '100%' }}
-          >
-            {inmune.length !== 0 ? (
-              inmune.map(item => (
-                <SwiperSlide key={item.id}>
-                  <Card images={item.imageLinks} title={item.title} category={item.category} />
-                </SwiperSlide>
-              ))
-            ) : (
-              <div>loading...</div>
-            )}
-          </Swiper>
-        ) : (
-          <div className="listView">
-            {inmune.length !== 0 ? (
-              inmune.map(item => (
-                <div key={item.id} className="listView__item grid grid-cols-3">
-                  <Card images={item.imageLinks} title={item.title} category={item.category} />
-                </div>
-              ))
-            ) : (
-              <div>loading...</div>
-            )}
-          </div>
-        )}
-        </div>
-      </details>
-
-
+      <DynamicDetails
+        title="momentos"
+        handleClick={() => console.log("Clicked momentos")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2024ahora"
+        folderName="momentos"
+      />
+      <DynamicDetails
+        title="paraíso"
+        handleClick={() => console.log("Clicked paraiso")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2024ahora"
+        folderName="paraiso"
+      />
     </details>
   )
 }
 
-export default Ahora 
+export default Ahora

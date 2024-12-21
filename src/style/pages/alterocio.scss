@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .alterocio {
+  font-family: "Poppins" !important;
+  margin: 1rem 0rem 5rem 0rem;
 
-	font-family: 'Poppins' !important;
-	margin: 1rem 0rem 5rem 0rem;
-
-  @include media('tablet') {
+  @include media("tablet") {
     margin: 0 2rem;
   }
 
@@ -16,15 +14,15 @@
     padding: 0;
     cursor: pointer;
     margin-bottom: 0;
-		padding: 0 10px;
+    padding: 0 10px;
 
-    @include media('tablet') { 
+    @include media("tablet") {
       margin-bottom: 0.5rem;
       padding: 0.3rem 0;
     }
   }
 
-  &__details[open] summary~* {
+  &__details[open] summary ~ * {
     animation: open 0.3s ease-in-out;
   }
 
@@ -51,7 +49,7 @@
     transform-origin: center;
     transition: 200ms linear;
 
-    @include media('tablet') {
+    @include media("tablet") {
       font-size: 70px;
       right: 40px;
       top: auto;
@@ -65,6 +63,7 @@
   &__card {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 
     &--border {
       border-bottom: 1px solid white;
@@ -296,7 +295,6 @@
       }
     }
 
-
     &--header {
       margin-bottom: 0;
       flex-direction: column;
@@ -307,37 +305,33 @@
       margin: 0;
       line-height: 33px;
       list-style: revert;
-      padding: .5rem;
-	
+      padding: 0.5rem;
     }
     &--header::marker {
       font-size: 22px;
-			margin-bottom: 5px;
+      margin-bottom: 5px;
     }
 
     &--grid {
       display: grid;
       grid-template-columns: 1fr;
-      @include media('tablet') {
+      @include media("tablet") {
         grid-template-columns: 1fr 1fr;
       }
     }
-
   }
 
   audio {
     width: 100%;
     height: 32px;
 
-    @include media('tablet') {
+    @include media("tablet") {
       width: 420px;
     }
   }
-
 }
 
 .genesis__section {
-
   .swiper {
     width: 100%;
     height: 100%;
@@ -371,7 +365,6 @@
   //   align-items: center;
   //   background: black;
   // }
-
 }
 
 .swiper-pagination-bullet-active {
@@ -387,18 +380,42 @@
 }
 
 .alterocio__card--momento[open] > .alterocio__card--header {
-	border-bottom: 2px white solid;
-	color: $white;
+  border-bottom: 2px white solid;
+  color: $white;
+  position: fixed;
+  width: 100%;
+  background: black;
 }
 
-
 .alterocio__card--momento[open] {
-	position: fixed;
-	top: 0;
-	bottom: 50px;
-	z-index: 999;
-	max-height: 100vh;
-	background-color: #000;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  bottom: 50px;
+  z-index: 999;
+  max-height: 100vh;
+  background-color: #000;
+}
+
+/* Personalización del scroll en navegadores basados en WebKit */
+.alterocio__card--momento {
+  overflow-y: scroll;
+  scrollbar-width: thin; /* Para Firefox */
+  scrollbar-color: #ffffff #000000; /* Color del pulgar y del fondo */
+}
+
+/* Para navegadores basados en WebKit */
+.alterocio__card--momento::-webkit-scrollbar {
+  width: 10px;
+}
+
+.alterocio__card--momento::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* Color del pulgar */
+  border-radius: 5px;
+}
+
+.alterocio__card--momento::-webkit-scrollbar-track {
+  background-color: #000000; /* Color del fondo */
 }
 
 .swiper {
@@ -420,31 +437,67 @@
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 100vh;
 }
 
 .swiper-wrapper {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	display: flex;
-	transition-property: transform;
-	box-sizing: content-box;
-	max-height: 80vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  max-height: 80vh;
 }
-
 
 .alterocio__card--buttons button {
-	border: #fff solid 1px;
-	margin-left: 8px;
-	padding: 5px 10px;
-	color: #fff;
-	font-family: 'Poppins';
-	background: transparent;
-	border-radius: 8px;
-	font-size: 15px;
-	text-transform: lowercase;
+  border: #fff solid 1px;
+  margin-left: 8px;
+  padding: 5px 10px;
+  color: #fff;
+  font-family: "Poppins";
+  background: transparent;
+  border-radius: 8px;
+  font-size: 15px;
+  text-transform: lowercase;
 }
 
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-family: swiper-icons !important;
+  font-size: var(--swiper-navigation-size) !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-variant: initial !important;
+  line-height: 1 !important;
+  color: #fffff3 !important; /* Color del ícono */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: #000000 !important; /* Fondo negro */
+  border: 2px solid #fffff3 !important; /* Borde blanco */
+  border-radius: 50% !important; /* Forma circular */
+  width: 40px !important; /* Tamaño del botón */
+  height: 40px !important; /* Tamaño del botón */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+.swiper-button-prev:after {
+  color: #fffff3 !important; /* Asegurar que el color del ícono sea blanco */
+  font-size: 19px !important;
+  margin-left: -2px !important;
+  margin-bottom: 2px !important;
+}
+
+.swiper-button-next:after {
+  color: #fffff3 !important; /* Asegurar que el color del ícono sea blanco */
+  font-size: 19px !important;
+  margin-left: 5px !important;
+  margin-bottom: 2px !important;
+}

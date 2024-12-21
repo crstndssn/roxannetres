@@ -29,38 +29,38 @@ const EditAlterocio = () => {
   const [error, setError] = useState('');
   const [notification, setNotification] = useState('');
 
-  useEffect(async () => {
+  // useEffect(async () => {
 
-    await store.collection('new').doc(id)
-      .get()
-      .then((doc) => {
-        console.log(doc.data())
-        const {
-          imagen,
-          name,
-          description,
-          content,
-          autor,
-          date
-        } = doc.data()
+  //   await store.collection('new').doc(id)
+  //     .get()
+  //     .then((doc) => {
+  //       console.log(doc.data())
+  //       const {
+  //         imagen,
+  //         name,
+  //         description,
+  //         content,
+  //         autor,
+  //         date
+  //       } = doc.data()
 
-        setPost(doc.data())
+  //       setPost(doc.data())
 
-        setImagen(imagen)
-        setName(name)
-        setDescription(description)
-        setContent(content)
-        setAutor(autor)
-        setDate(date)
+  //       setImagen(imagen)
+  //       setName(name)
+  //       setDescription(description)
+  //       setContent(content)
+  //       setAutor(autor)
+  //       setDate(date)
 
-      })
-      .catch((error) => {
-        console.log("Error getting documents: ", error);
-      })
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error getting documents: ", error);
+  //     })
 
 
 
-  }, [])
+  // }, [])
 
   const setUpdate = async (e) => {
 

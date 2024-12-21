@@ -23,47 +23,10 @@ import ViewModeButtons from "@/src/components/Imagenes/ViewModeButtons";
 import DynamicDetails from "@/src/components/Imagenes/DynamicDetails";
 
 const Genesis = ({ setCurrentSong, setColors, id }) => {
-  const [sur, setSur] = useState("");
-  const [centro, setCentro] = useState("");
-  const [norte, setNorte] = useState("");
-
-  const [imageSlider, setImageSlider] = useState([]);
-  const [textPost, setTextPost] = useState("");
-
-  // GALLERY
-  useEffect(() => {
-    const sur = async () => {
-      const { docs } = await store
-        .collection("new")
-        .where("title", "==", "sur")
-        .get();
-      const newArray = docs.map((item) => ({ id: item.id, ...item.data() }));
-      setSur(newArray);
-    };
-    sur();
-    const norte = async () => {
-      const { docs } = await store
-        .collection("new")
-        .where("title", "==", "norte")
-        .get();
-      const newArray = docs.map((item) => ({ id: item.id, ...item.data() }));
-      setNorte(newArray);
-    };
-    norte();
-    const centro = async () => {
-      const { docs } = await store
-        .collection("new")
-        .where("title", "==", "centro")
-        .get();
-      const newArray = docs.map((item) => ({ id: item.id, ...item.data() }));
-      setCentro(newArray);
-    };
-    centro();
-  }, []);
 
   // GRID MODE
   const [isOpen, setIsOpen] = useState(false);
-  const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'list'
+  const [viewMode, setViewMode] = useState("list"); // 'grid' or 'list'
 
   // COLORS
   const handleClickGenesis = () => {
@@ -104,32 +67,32 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
       <summary className="alterocio__card--summary alterocio__summary flex items-center gap-3">
         génesis <p className="pt-4 text-base tracking-normal">2017</p>
       </summary>
-
       <DynamicDetails
         title="sur"
         handleClick={handleClickSur}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={sur}
-        className="alterocio__card--border alterocio__card--momento"
+        basePath="alterocio/2017genesis"
+        folderName="sur"
       />
-
       <DynamicDetails
         title="centro"
         handleClick={handleClickCentro}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={centro}
-        className="alterocio__card--border alterocio__card--momento"
+        basePath="alterocio/2017genesis"
+        folderName="centro"
       />
-
       <DynamicDetails
         title="norte"
         handleClick={handleClickNorte}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={norte}
-        className="alterocio__card--border alterocio__card--momento"
+        basePath="alterocio/2017genesis"
+        folderName="norte"
       />
     </details>
   );

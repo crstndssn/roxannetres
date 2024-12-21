@@ -1,113 +1,112 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import "swiper/css/navigation"; 
 import ViewModeButtons from "./ViewModeButtons";
 import Card from "@/src/app/alterocio/Card";
 
-const DynamicDetails = ({ 
-  title, 
-  handleClick, 
-  className, 
-  viewMode, 
-  setViewMode, 
-  data 
+import { Navigation } from 'swiper/modules';
+
+const DynamicDetails = ({
+  title,
+  handleClick,
+  className,
+  viewMode,
+  setViewMode,
+  basePath,
+  folderName,
 }) => {
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleToggle = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Ajusta el tiempo según el delay que experimentes
-  };
+  useEffect(() => {
+    const loadImages = async () => {
+      if (!basePath || !folderName) return;
+
+      try {
+        setIsLoading(true);
+
+        // Llamar a la API para obtener los archivos
+        const folderPath = `${basePath}/${folderName}`;
+        const response = await fetch(`/api/load-images?folderPath=${folderPath}`);
+        const images = await response.json();
+
+        if (response.ok) {
+          // Crear rutas completas para las imágenes
+          const loadedImages = images.map((fileName, index) => ({
+            id: index,
+            imageLinks: [`/${folderPath}/${fileName}`],
+            title: `${folderName.charAt(0).toUpperCase() + folderName.slice(1)} Image ${index + 1
+              }`,
+            category: folderName.charAt(0).toUpperCase() + folderName.slice(1),
+          }));
+
+          setData(loadedImages);
+        } else {
+          console.error("Error fetching images:", images.error);
+        }
+      } catch (error) {
+        console.error("Error loading images:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadImages();
+  }, [basePath, folderName]);
 
   return (
     <details
       onClick={(e) => {
         handleClick(e);
-        handleToggle();
       }}
       className={className}
     >
       <summary className="alterocio__card--header">{title}</summary>
       <ViewModeButtons setViewMode={setViewMode} />
-      <div
-        className={`${className}--grid h-full overflow-y-auto p-2`}
-      >
-        {isLoading && (
-          <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 100 100"
-              className="w-16 h-16 text-white animate-spin"
-            >
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
-                stroke="currentColor"
-                strokeWidth="10"
-                fill="none"
-                strokeDasharray="283"
-                strokeDashoffset="75"
-                strokeLinecap="round"
-                transform="rotate(-90 50 50)"
-              >
-                <animate
-                  attributeName="stroke-dashoffset"
-                  from="75"
-                  to="360"
-                  dur="1s"
-                  repeatCount="indefinite"
+      <div className={`${className}--grid h-full overflow-y-auto p-2`}>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : viewMode === "grid" ? (
+          <Swiper
+            slidesPerView="auto"
+            centeredSlides
+            spaceBetween={0}
+            pagination={{ clickable: true }}
+            navigation={true} modules={[Navigation]} // Activa los botones de navegación
+            freeMode
+            className="mySwiper"
+            style={{ height: "100%" }}
+          >
+            {data.map((item) => (
+              <SwiperSlide key={item.id}>
+                <Card
+                  images={item.imageLinks}
+                  title={item.title}
+                  category={item.category}
                 />
-              </circle>
-            </svg>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+        ) : (
+          <div className="listView pt-14 columns-1 md:columns-2 gap-4 pb-[100px]">
+            {data.map((item) => (
+              <div
+                key={item.id}
+                className="listView__item break-inside-avoid mb-2 bg-gray-200 md:p-2"
+              >
+                <Card
+                  images={item.imageLinks}
+                  title={item.title}
+                  category={item.category}
+                />
+              </div>
+            ))}
           </div>
         )}
-        {!isLoading &&
-          (viewMode === "grid" ? (
-            <Swiper
-              slidesPerView="auto"
-              centeredSlides
-              spaceBetween={0}
-              pagination={{ clickable: true }}
-              freeMode
-              className="mySwiper"
-              style={{ height: "100%" }}
-            >
-              {data.length !== 0 ? (
-                data.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <Card
-                      images={item.imageLinks}
-                      title={item.title}
-                      category={item.category}
-                    />
-                  </SwiperSlide>
-                ))
-              ) : (
-                <div>Loading...</div>
-              )}
-            </Swiper>
-          ) : (
-            <div className="listView columns-3 gap-4 pb-[100px]">
-              {data.length !== 0 ? (
-                data.map((item) => (
-                  <div key={item.id} className="listView__item break-inside-avoid mb-2 bg-gray-200 p-2">
-                    <Card
-                      images={item.imageLinks}
-                      title={item.title}
-                      category={item.category}
-                    />
-                  </div>
-                ))
-              ) : (
-                <div>Loading...</div>
-              )}
-            </div>
-          ))}
       </div>
     </details>
   );

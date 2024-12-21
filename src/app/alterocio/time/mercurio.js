@@ -6,14 +6,10 @@ import Link from 'next/link';
 
 import '../../../style/app.scss'
 
-import Card from '../Card'
-
-
-import sulky from '../resources/songs/sulky.mp3'
-import centro__lamaquina from '../resources/songs/centro.mp3'
-import norte_lj from '../resources/songs/norte.mp3'
-
-
+import antes_de_morir from '../resources/songs/antes_de_morir.mp3'
+import entre_las_luces from '../resources/songs/entre_las_luces.mp3'
+import no_soy_un_extraño from '../resources/songs/no_soy_un_extraño.mp3'
+import shiva_song from '../resources/songs/shiva.mp3'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -25,86 +21,97 @@ import 'swiper/css/pagination';
 import ViewModeButtons from '@/src/components/Imagenes/ViewModeButtons';
 import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
 
+const Mercurio = ({ setCurrentSong, setColors, id }) => {
 
-const Ahora = ({ setCurrentSong, setColors, id }) => {
+  // GRID MODE
+  const [isOpen, setIsOpen] = useState(false);
+  const [viewMode, setViewMode] = useState("list"); // 'grid' or 'list'
 
-  const [sur, setSur] = useState('')
-  const [qlees, setQlees] = useState('')
-  const [wywh, setWywh] = useState('')
-
-  const [imageSlider, setImageSlider] = useState([])
-  const [textPost, setTextPost] = useState('')
-
-  useEffect(() => {
-    const sur = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "sur").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setSur(newArray)
-    }
-    sur()
-    const norte = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "norte").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setNorte(newArray)
-    }
-    norte()
-    const centro = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "centro").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setCentro(newArray)
-    }
-    centro()
-  }, [])
-
-	const handleClickAhora = () => {
-		setColors({
-			primary: '#2c7d37',
-			secondary: '#000'
-		});
-	};
-
-	const handleClickMomento = () => {
-    setCurrentSong({
-      title: 'Inmune',
-      url: inmune_n
-    });
-		setIsOpen(isOpen);
-  };
-
-	const handleClickParaiso = () => {
-    setCurrentSong({
-      title: 'Inmune',
-      url: q_lindo_es_el_sol
+  // COLORS
+  const handleClickMercurio = () => {
+    setColors({
+      primary: "#8E4FD1",
+      secondary: "#000",
     });
   };
 
-	const [isOpen, setIsOpen] = useState(false);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-
-  
-	const handleClickSur = () => {
+  // MUSIC
+  const handleClickMorir = () => {
     setCurrentSong({
-      title: 'Sulky',
-      url: sulky
+      title: 'antes de morir',
+      url: antes_de_morir
+    });
+    setIsOpen(isOpen);
+  };
+
+  const handleClickLuces = () => {
+    setCurrentSong({
+      title: 'entre las luces',
+      url: entre_las_luces
+    });
+  };
+
+  const handleClickExtrano = () => {
+    setCurrentSong({
+      title: 'no soy un extraño',
+      url: no_soy_un_extraño
+    });
+  };
+
+  const handleClickShiva = () => {
+    setCurrentSong({
+      title: 'shiva',
+      url: shiva_song
     });
   };
 
   return (
-    <details onClick={handleClickAhora} className='mercurio__section alterocio__card alterocio__card--mercurio alterocio__details'>
+    <details onClick={handleClickMercurio} className='mercurio__section alterocio__card alterocio__card--mercurio alterocio__details'>
 
       <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>mercúrio<p className='pt-4 text-base tracking-normal'>2018</p></summary>
-    
+
       <DynamicDetails
-        title="sur"
-        handleClick={handleClickSur}
+        title="antes de morir"
+        handleClick={handleClickMorir}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={sur}
+        basePath="alterocio/2018mercurio"
+        folderName="antesdemorir"
+      />
+
+      <DynamicDetails
+        title="entre las luces"
+        handleClick={() => console.log("Clicked Cielo")}
         className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2018mercurio"
+        folderName="entrelasluces"
+      />
+
+      <DynamicDetails
+        title="no soy un extraño"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2018mercurio"
+        folderName="nosoyunextraño"
+      />
+
+      <DynamicDetails
+        title="shiva"
+        handleClick={() => console.log("Clicked shiva")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2018mercurio"
+        folderName="shiva"
       />
 
     </details>
   )
 }
 
-export default Ahora 
+export default Mercurio 

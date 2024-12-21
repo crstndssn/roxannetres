@@ -28,61 +28,34 @@ import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
 
 const Florecer = ({ setCurrentSong, setColors, id }) => {
 
-  const [sur, setSur] = useState('')
-  const [qlees, setQlees] = useState('')
-  const [wywh, setWywh] = useState('')
+  // GRID MODE
+  const [isOpen, setIsOpen] = useState(false);
+  const [viewMode, setViewMode] = useState("list");
 
-  const [imageSlider, setImageSlider] = useState([])
-  const [textPost, setTextPost] = useState('')
+  // COLORS
+  const handleClickFlorecer = () => {
+    setColors({
+      primary: '#FECD27',
+      secondary: '#000'
+    });
+  };
 
-  useEffect(() => {
-    const sur = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "sur").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setSur(newArray)
-    }
-    sur()
-    const norte = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "norte").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setNorte(newArray)
-    }
-    norte()
-    const centro = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "centro").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setCentro(newArray)
-    }
-    centro()
-  }, [])
-
-	const handleClickAhora = () => {
-		setColors({
-			primary: '#2c7d37',
-			secondary: '#000'
-		});
-	};
-
-	const handleClickMomento = () => {
+  const handleClickMomento = () => {
     setCurrentSong({
       title: 'Inmune',
       url: inmune_n
     });
-		setIsOpen(isOpen);
+    setIsOpen(isOpen);
   };
 
-	const handleClickParaiso = () => {
+  const handleClickParaiso = () => {
     setCurrentSong({
       title: 'Inmune',
       url: q_lindo_es_el_sol
     });
   };
 
-	const [isOpen, setIsOpen] = useState(false);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-
-  
-	const handleClickSur = () => {
+  const handleClickSur = () => {
     setCurrentSong({
       title: 'Sulky',
       url: sulky
@@ -90,19 +63,35 @@ const Florecer = ({ setCurrentSong, setColors, id }) => {
   };
 
   return (
-    <details onClick={handleClickAhora} className='florecer__section alterocio__card alterocio__card--florecer alterocio__details'>
-
+    <details onClick={handleClickFlorecer} className='florecer__section alterocio__card alterocio__card--florecer alterocio__details'>
       <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>florecer<p className='pt-4 text-base tracking-normal'>2021</p></summary>
-    
       <DynamicDetails
-        title="sur"
+        title="curandera"
         handleClick={handleClickSur}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={sur}
-        className="alterocio__card--border alterocio__card--momento"
+        basePath="alterocio/2021florecer"
+        folderName="curandera"
       />
-
+      <DynamicDetails
+        title="en llamas"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2021florecer"
+        folderName="enllamas"
+      />
+      <DynamicDetails
+        title="salva tu piel"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2021florecer"
+        folderName="salvatupiel"
+      />
     </details>
   )
 }

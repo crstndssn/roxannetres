@@ -29,6 +29,8 @@ import lock from "./resources/vectors/lock.svg";
 import Card from "./Card";
 
 import { auth } from "../firebase";
+import Futuro from "./time/futuro";
+import Ahora from "./time/ahora";
 
 const Page = () => {
   // // nueva configuración
@@ -183,18 +185,17 @@ const Page = () => {
               setCurrentSong={setCurrentSong}
             />
 
-            <Viento
+            {/* <Viento
               id="dorado1"
               setColors={setColors}
               setCurrentSong={setCurrentSong}
             />
 
-            {/* <Pasado
+            <Futuro
               id="dorado1"
               setColors={setColors}
               setCurrentSong={setCurrentSong}
             />
-
             <Ahora
               id="dorado1"
               setColors={setColors}

@@ -25,84 +25,92 @@ import 'swiper/css/pagination';
 import ViewModeButtons from '@/src/components/Imagenes/ViewModeButtons';
 import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
 
-
 const Semillas = ({ setCurrentSong, setColors, id }) => {
 
-  const [sur, setSur] = useState('')
-  const [qlees, setQlees] = useState('')
-  const [wywh, setWywh] = useState('')
+  // GRID MODE
+  const [isOpen, setIsOpen] = useState(false);
+  const [viewMode, setViewMode] = useState("list");
 
-  const [imageSlider, setImageSlider] = useState([])
-  const [textPost, setTextPost] = useState('')
-
-  useEffect(() => {
-    const sur = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "sur").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setSur(newArray)
-    }
-    sur()
-    const norte = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "norte").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setNorte(newArray)
-    }
-    norte()
-    const centro = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "centro").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setCentro(newArray)
-    }
-    centro()
-  }, [])
-
-	const handleClickAhora = () => {
-		setColors({
-			primary: '#2c7d37',
-			secondary: '#000'
-		});
-	};
-
-	const handleClickMomento = () => {
-    setCurrentSong({
-      title: 'Inmune',
-      url: inmune_n
+  // COLORS
+  const handleClickSemillas = () => {
+    setColors({
+      primary: '#86A54F',
+      secondary: '#000'
     });
-		setIsOpen(isOpen);
   };
 
-	const handleClickParaiso = () => {
+  // MUSIC
+  const handleClickRefugios = () => {
     setCurrentSong({
-      title: 'Inmune',
+      title: 'fuego en el mar',
+      url: inmune_n
+    });
+    setIsOpen(isOpen);
+  };
+
+  const handleClickEfimero = () => {
+    setCurrentSong({
+      title: 'seres extraños',
+      url: inmune_n
+    });
+    setIsOpen(isOpen);
+  };
+
+  const handleClickMar = () => {
+    setCurrentSong({
+      title: 'Mar',
       url: q_lindo_es_el_sol
     });
   };
 
-	const [isOpen, setIsOpen] = useState(false);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-
-  
-	const handleClickSur = () => {
+  const handleClickQuedandote = () => {
     setCurrentSong({
-      title: 'Sulky',
-      url: sulky
+      title: 'quedándote o yéndote',
+      url: wish_you_were_here
     });
   };
 
   return (
-    <details onClick={handleClickAhora} className='semillas__section alterocio__card alterocio__card--semillas alterocio__details'>
-
-      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>semillas<p className='pt-4 text-base tracking-normal'>2020</p></summary>
-    
+    <details onClick={handleClickSemillas} className='semillas__section alterocio__card alterocio__card--semillas alterocio__details'>
+      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>semillas
+        <p className='pt-4 text-base tracking-normal'>2020</p>
+      </summary>
       <DynamicDetails
-        title="sur"
-        handleClick={handleClickSur}
+        title="refugios"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={sur}
-        className="alterocio__card--border alterocio__card--momento"
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
       />
-
+      <DynamicDetails
+        title="efimero anacronico"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="efimeroanacronico"
+      />
+      <DynamicDetails
+        title="mar"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="mar"
+      />
+      <DynamicDetails
+        title="quedandote"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="quedandote"
+      />
     </details>
   )
 }

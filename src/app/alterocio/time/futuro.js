@@ -56,33 +56,33 @@ const Futuro = ({ setCurrentSong, setColors, id }) => {
     centro()
   }, [])
 
-	const handleClickAhora = () => {
-		setColors({
-			primary: '#2c7d37',
-			secondary: '#000'
-		});
-	};
+  const handleClickAhora = () => {
+    setColors({
+      primary: '#d14f6d',
+      secondary: '#000'
+    });
+  };
 
-	const handleClickMomento = () => {
+  const handleClickMomento = () => {
     setCurrentSong({
       title: 'Inmune',
       url: inmune_n
     });
-		setIsOpen(isOpen);
+    setIsOpen(isOpen);
   };
 
-	const handleClickParaiso = () => {
+  const handleClickParaiso = () => {
     setCurrentSong({
       title: 'Inmune',
       url: q_lindo_es_el_sol
     });
   };
 
-	const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
 
-  
-	const handleClickSur = () => {
+
+  const handleClickSur = () => {
     setCurrentSong({
       title: 'Sulky',
       url: sulky
@@ -90,17 +90,45 @@ const Futuro = ({ setCurrentSong, setColors, id }) => {
   };
 
   return (
-    <details onClick={handleClickAhora} className='genesis__section alterocio__card alterocio__card--genesis alterocio__details'>
+    <details onClick={handleClickAhora} className='futuro__section alterocio__card alterocio__card--futuro alterocio__details'>
 
-      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>génesis  <p className='pt-4 text-base tracking-normal'>2017</p></summary>
-    
+      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>futuro<p className='pt-4 text-base tracking-normal'>2023</p></summary>
+
       <DynamicDetails
-        title="sur"
-        handleClick={handleClickSur}
+        title="afuera"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={sur}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
+      />
+      <DynamicDetails
+        title="adentro"
+        handleClick={() => console.log("Clicked Cielo")}
         className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
+      />
+      <DynamicDetails
+        title="mi vida"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
+      />
+      <DynamicDetails
+        title="subiendo"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
       />
 
     </details>

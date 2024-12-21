@@ -56,9 +56,14 @@ const Viento = ({ setCurrentSong, setColors, id }) => {
     centro()
   }, [])
 
-	const handleClickAhora = () => {
+  // GRID MODE
+  const [isOpen, setIsOpen] = useState(false);
+  const [viewMode, setViewMode] = useState("list");
+
+  // COLORS
+	const handleClickViento = () => {
 		setColors({
-			primary: '#2c7d37',
+			primary: '#4f9fd1',
 			secondary: '#000'
 		});
 	};
@@ -71,37 +76,55 @@ const Viento = ({ setCurrentSong, setColors, id }) => {
 		setIsOpen(isOpen);
   };
 
-	const handleClickParaiso = () => {
+	const handleClickSur = () => {
     setCurrentSong({
       title: 'Inmune',
       url: q_lindo_es_el_sol
     });
   };
 
-	const [isOpen, setIsOpen] = useState(false);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-
-  
-	const handleClickSur = () => {
-    setCurrentSong({
-      title: 'Sulky',
-      url: sulky
-    });
-  };
 
   return (
-    <details onClick={handleClickAhora} className='viento__section alterocio__card alterocio__card--viento alterocio__details'>
+    <details onClick={handleClickViento} className='viento__section alterocio__card alterocio__card--viento alterocio__details'>
       <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>viento<p className='pt-4 text-base tracking-normal'>2022</p></summary>
       <DynamicDetails
-        title="sur"
-        handleClick={handleClickSur}
+        title="refugios"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        data={sur}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
+      />
+      <DynamicDetails
+        title="refugios"
+        handleClick={() => console.log("Clicked Cielo")}
         className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
+      />
+      <DynamicDetails
+        title="refugios"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
+      />
+      <DynamicDetails
+        title="refugios"
+        handleClick={() => console.log("Clicked Cielo")}
+        className="alterocio__card--border alterocio__card--momento"
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        basePath="alterocio/2020semillas"
+        folderName="refugios"
       />
     </details>
   )
 }
 
-export default Viento 
+export default Viento

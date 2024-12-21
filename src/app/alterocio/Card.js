@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 // Import Swiper React components
 // import { Pagination } from 'swiper'
@@ -21,6 +22,9 @@ const Card = (props) => {
   const title = useState(props.title)
   const description = useState(props.text)
 
+
+
+
   // console.log(imageLinks)  
 
   // const addText = (text) => {
@@ -31,7 +35,8 @@ const Card = (props) => {
 
   return (
     <div className="card">
-        <img className="card__image" src={imageLinks[0][0]} loading="lazy" />
+        {/* <img className="card__image" src={imageLinks[0][0]} loading="lazy" /> */}
+        <Image className="card__image" src={imageLinks[0][0]} alt="hecho por Cristian Dussán Losada" width={2000} height={2000} />
       {/* <h2 className="card__title">{title}</h2> */}
     </div>
   )
