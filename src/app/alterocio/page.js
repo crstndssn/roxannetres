@@ -49,57 +49,57 @@ const Page = () => {
   const [currentSong, setCurrentSong] = useState("");
   const [colors, setColors] = useState("");
 
-  useEffect(() => {
-    console.log("state = unknown (until the callback is invoked)"); // Log initial state
+  // useEffect(() => {
+  //   console.log("state = unknown (until the callback is invoked)"); // Log initial state
 
-    setColors({
-      primary: "#ED0000",
-      secondary: "#000",
-    });
+  //   setColors({
+  //     primary: "#ED0000",
+  //     secondary: "#000",
+  //   });
 
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        console.log("state = definitely signed in"); // Log when signed in
-        const userEmailString = user.email || ""; // Ensure user.email is not null
-        setCurrentEmail(userEmailString); // Set current email
-        console.log(userEmailString + " <- current authhhhhhh");
-        setUsuario(true);
-        if (user.email === "u20171157265@usco.edu.co") {
-          setAdmin(true);
-          setUserSub(true);
-          setUserEmail(userEmailString);
-        } else {
-          setAdmin(false);
-          setUserEmail(userEmailString);
-        }
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       console.log("state = definitely signed in"); // Log when signed in
+  //       const userEmailString = user.email || ""; // Ensure user.email is not null
+  //       setCurrentEmail(userEmailString); // Set current email
+  //       console.log(userEmailString + " <- current authhhhhhh");
+  //       setUsuario(true);
+  //       if (user.email === "u20171157265@usco.edu.co") {
+  //         setAdmin(true);
+  //         setUserSub(true);
+  //         setUserEmail(userEmailString);
+  //       } else {
+  //         setAdmin(false);
+  //         setUserEmail(userEmailString);
+  //       }
 
-        store.collection("sub").onSnapshot((snapshot) => {
-          const userList = [];
-          snapshot.forEach((doc) => {
-            const userData = doc.data();
-            userList.push(userData);
-            if (userData.email === userEmailString) {
-              setUserSub(true);
-              console.log(currentEmail + " <- current");
-              console.log(userData.email + " eres premium");
-            } else {
-              console.log(currentEmail + " <- current");
-              console.log(userData.email + " no eres premium");
-            }
-          });
-          setUsers(userList);
-        });
-      } else {
-        console.log("state = definitely signed out");
-        setUsuario(false);
-        setAdmin(false);
-        setCurrentEmail(null);
-        setUserSub(false);
-        setUserEmail("");
-      }
-      setLoading(false);
-    });
-  }, []);
+  //       store.collection("sub").onSnapshot((snapshot) => {
+  //         const userList = [];
+  //         snapshot.forEach((doc) => {
+  //           const userData = doc.data();
+  //           userList.push(userData);
+  //           if (userData.email === userEmailString) {
+  //             setUserSub(true);
+  //             console.log(currentEmail + " <- current");
+  //             console.log(userData.email + " eres premium");
+  //           } else {
+  //             console.log(currentEmail + " <- current");
+  //             console.log(userData.email + " no eres premium");
+  //           }
+  //         });
+  //         setUsers(userList);
+  //       });
+  //     } else {
+  //       console.log("state = definitely signed out");
+  //       setUsuario(false);
+  //       setAdmin(false);
+  //       setCurrentEmail(null);
+  //       setUserSub(false);
+  //       setUserEmail("");
+  //     }
+  //     setLoading(false);
+  //   });
+  // }, []);
 
   return (
     <div>

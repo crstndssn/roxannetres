@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { store, storage } from '../../../firebase'
 import { Editor } from '@tinymce/tinymce-react';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 const AddAlterocio = () => {
 
@@ -116,8 +117,9 @@ const AddAlterocio = () => {
             <div>no hay</div>
           ) : (
             imageLinks.map((image, key) =>
-              <div>
-                <img src={image} alt="" />
+              <div key={item.id}>
+
+                <Image src={image} alt="hecho por cristian dussán" width={3000} height={3000} />
               </div>
             )
           )
