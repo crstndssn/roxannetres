@@ -3,6 +3,7 @@ import { useParams, useHistory, Link } from 'react-router-dom'
 import { store, storage } from '../../../firebase'
 
 import { Editor } from '@tinymce/tinymce-react';
+import Image from 'next/image';
 
 const EditAlterocio = () => {
 
@@ -168,7 +169,7 @@ const EditAlterocio = () => {
             :
             (
               <div>
-                <img className="w-full rounded-xl" src={imagen} alt="imagen-2" />
+                <Image className="w-full rounded-xl" src={imagen} alt="imagen-2" />
                 <input
                   onChange={(e) => { updateFile(e) }}
                   name="upload-image"

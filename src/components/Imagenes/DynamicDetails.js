@@ -92,7 +92,7 @@ const DynamicDetails = ({
           </Swiper>
 
         ) : (
-          <div className="listView pt-14 columns-1 md:columns-2 gap-4 pb-[100px]">
+          <div className="listView pt-14 columns-1 md:columns-2  gap-4 pb-[100px]">
             {data.map((item) => (
               <div
                 key={item.id}
