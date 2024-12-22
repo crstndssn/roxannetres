@@ -70,7 +70,7 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
       <DynamicDetails
         title="sur"
         handleClick={handleClickSur}
-        className="alterocio__card--border alterocio__card--momento"
+        className="border-b-2 border-black dark:border-white alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2017genesis"
@@ -79,7 +79,7 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
       <DynamicDetails
         title="centro"
         handleClick={handleClickCentro}
-        className="alterocio__card--border alterocio__card--momento"
+        className="border-b-2 border-black dark:border-white alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2017genesis"
@@ -88,7 +88,7 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
       <DynamicDetails
         title="norte"
         handleClick={handleClickNorte}
-        className="alterocio__card--border alterocio__card--momento"
+        className="border-b-2 border-black dark:border-white alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2017genesis"

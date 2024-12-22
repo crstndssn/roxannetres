@@ -2,7 +2,7 @@
 
 .alterocio {
   font-family: "Poppins" !important;
-  margin: 1rem 0rem 5rem 0rem;
+  margin: 0 0rem 5rem 0rem;
 
   @include media("tablet") {
     margin: 0 2rem;
@@ -300,7 +300,6 @@
       flex-direction: column;
       list-style-type: square;
       font-size: 33px;
-      color: white;
       font-weight: 400;
       margin: 0;
       line-height: 33px;

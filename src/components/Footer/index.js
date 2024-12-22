@@ -13,7 +13,7 @@ const Footer = () => {
 	const onSubmit = data => console.log(data);
 	console.log(errors);
 	return (
-		<footer className='border-t-2 border-black dark:border-white bg-[#fffff9] dark:bg-black flex flex-col items-center text-black dark:text-light'>
+		<footer className='border-t-2 border-black dark:border-white bg-[rgb(255 252 213)] dark:bg-black flex flex-col items-center text-black dark:text-light'>
 
 			<div className='container mx-auto w-full flex justify-between py-3'>
 				<div className='flex justify-center items-center'>

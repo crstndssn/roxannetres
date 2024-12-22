@@ -64,7 +64,7 @@ const DynamicDetails = ({
       }}
       className={className}
     >
-      <summary className="alterocio__card--header">{title}</summary>
+      <summary className="alterocio__card--header text-black dark:text-white">{title}</summary>
       <ViewModeButtons setViewMode={setViewMode} />
       <div className={`${className}--grid h-full overflow-y-auto p-2`}>
         {isLoading ? (

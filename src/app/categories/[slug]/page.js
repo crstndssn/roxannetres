@@ -61,7 +61,7 @@ const blogs = allBlogs.filter(blog => {
         <h1 className="font-semibold text-2xl md:text-4xl lg:text-5xl text-center">{params.slug}</h1>
       </div>
       <Categories categories={allCategories} currentSlug={params.slug} />
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-12 mt-5 sm:mt-10">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-12 mt-5 sm:mt-10 px-4 md:px-0">
         {blogs.map((blog, index) => (
           <div key={index} className="col-span-1 row-span-1 relative">
             <BlogLayoutOne blog={blog} />
