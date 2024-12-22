@@ -60,7 +60,7 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
   return (
     <details onClick={handleClickAhora} className='genesis__section alterocio__card alterocio__card--ahora alterocio__details'>
       <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>ahora<p className='pt-4 text-base tracking-normal'>2024</p></summary>
-      <DynamicDetails
+      {/* <DynamicDetails
         title="cielo"
         handleClick={() => console.log("Clicked Cielo")}
         className="alterocio__card--border alterocio__card--momento"
@@ -86,7 +86,7 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
         setViewMode={setViewMode}
         basePath="alterocio/2024ahora"
         folderName="momentos"
-      />
+      /> */}
       <DynamicDetails
         title="paraíso"
         handleClick={() => console.log("Clicked paraiso")}
