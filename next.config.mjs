@@ -1,9 +1,10 @@
 const nextConfig = {
-  reactStrictMode: true, // Mantén reactStrictMode habilitado para verificar buenas prácticas
+  reactStrictMode: true,
   webpack: (config) => {
+    config.cache = false; // Desactiva la caché
     config.module.rules.push({
       test: /\.mp3$/,
-      type: 'asset/resource', // Manejo de archivos .mp3 como recursos
+      type: 'asset/resource',
     });
     return config;
   },
