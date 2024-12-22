@@ -1,6 +1,6 @@
 {
-  "name": "roxaaanne",
-  "version": "0.20",
+  "name": "developer-blog-starter-code",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
