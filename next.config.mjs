@@ -1,4 +1,5 @@
 const nextConfig = {
+  reactStrictMode: true, // Mantén reactStrictMode habilitado para verificar buenas prácticas
   webpack: (config) => {
     config.module.rules.push({
       test: /\.mp3$/,
