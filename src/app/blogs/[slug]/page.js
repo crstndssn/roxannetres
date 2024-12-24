@@ -6,10 +6,10 @@ import { slug } from "github-slugger";
 import Image from "next/image";
 
 export default function BlogPage({ params }) {
+
   if (!params?.slug) {
     return <div>Error: Blog not found</div>;
   }
-
   const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
 
   if (!blog) {

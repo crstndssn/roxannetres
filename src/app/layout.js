@@ -56,8 +56,8 @@ export default function RootLayout({ children }) {
 					manrope.variable,
 					"font-mr bg-[#FFFCD5] dark:bg-black"
 				)}
-			>
-				<Script id="theme-switcher" strategy="beforeInteractive">
+		>
+                                      <Script id="theme-switcher">
 					{`if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 							document.documentElement.classList.add('dark')
 						} else {
@@ -67,6 +67,6 @@ export default function RootLayout({ children }) {
 				<Header />
 				{children}
 			</body>
-		</html>
+</html>
 	)
 }

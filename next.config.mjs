@@ -28,6 +28,7 @@ const nextConfig = withContentlayer({
 
     return config;
   },
+
 });
 
 export default nextConfig;
