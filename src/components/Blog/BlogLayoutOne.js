@@ -6,7 +6,7 @@ import { slug } from 'github-slugger';
 
 const BlogLayoutOne = ({ blog }) => {
 	return (
-		<div className='w-full min-w-[280px] inline-block roun'>
+		<div className='w-full min-w-[330px] min-h-[330px] inline-block roun'>
 			<div className='flex flex-col items-start justify-end relative h-[330px] md:h-[50vh]'>
 				<div className='absolute top-0 left-0 bottom-0 right-0 h-full z-0' />
 				<Image src={blog.image.replace("../../../public", "")}

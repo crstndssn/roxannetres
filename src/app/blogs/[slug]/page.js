@@ -18,12 +18,12 @@ export default function BlogPage({ params }) {
 
   return (
     <div>
-      <div className="container mx-auto mb-4 text-center relative w-full bg-dark h-auto">
+      <div className="container mx-auto mb-4 text-center relative w-full bg-dark h-auto rounded-md">
         <Image
           src={blog.image.replace("../../../public", "")}
           alt={blog.title}
-          width={1000}
-          height={300}
+          width={3000}
+          height={1000}
           className="w-full h-full object-cover max-h-[420px]"
         />
       </div>

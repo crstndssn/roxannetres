@@ -62,8 +62,8 @@ const Header = () => {
 				</button>
 			</nav>
 
-			<nav className=" w-max py-3 px-8 border border-black dark:border-amarillo rounded-full font-medium  items-center hidden sm:flex
-       bg-amarillo dark:bg-black backdrop-blur-sm z-50">
+			<nav className=" w-max py-3 px-8  border border-black dark:border-amarillo rounded-full font-medium  items-center hidden sm:flex
+       bg-[#fff4e0] dark:bg-black backdrop-blur-sm z-50">
 				<Link href="/" className="mr-2 text-black dark:text-amarillo">inicio</Link>
 				<Link href="/imagenes" className="mx-2 text-black dark:text-amarillo">imágenes</Link>
 				<Link href="/categories/all" className="mx-2 text-black dark:text-amarillo">historias</Link>
