@@ -15,7 +15,8 @@ module.exports = {
         accentDark: "#ffdb4d",
         gray: "#747474",
 				amarillo: "#FFFFF9",
-        gold: "#FFFCD5"
+        gold: "#FFFCD5",
+        amarillito: "#fff4e0"
       },
       fontFamily:{
         mr: ["var(--font-mr)"],
