@@ -9,9 +9,9 @@ import '../../../style/app.scss'
 import Card from '../Card'
 
 
-import sulky from '../resources/songs/sulky.mp3'
-import centro__lamaquina from '../resources/songs/centro.mp3'
-import norte_lj from '../resources/songs/norte.mp3'
+import sulky from '@/public/songs/sulky.mp3'
+import centro__lamaquina from '@/public/songs/centro.mp3'
+import norte_lj from '@/public/songs/norte.mp3'
 
 
 
@@ -26,9 +26,9 @@ import ViewModeButtons from '@/src/components/Imagenes/ViewModeButtons';
 import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
 
 
-import inmune_n from '../resources/songs/inmune.mp3'
-import q_lindo_es_el_sol from '../resources/songs/que_lindo_es_el_sol.mp3'
-import wish_you_were_here from '../resources/songs/wish_you_were_here.mp3'
+import inmune_n from '@/public/songs/inmune.mp3'
+import q_lindo_es_el_sol from '@/public/songs/que_lindo_es_el_sol.mp3'
+import wish_you_were_here from '@/public/songs/wish_you_were_here.mp3'
 
 
 const Blue = ({ setCurrentSong, setColors, id }) => {
@@ -69,9 +69,11 @@ const Blue = ({ setCurrentSong, setColors, id }) => {
   };
 
   return (
-    <details onClick={handleClickBlue} className='blue__section alterocio__card alterocio__card--blue alterocio__details'>
+    <details open onClick={handleClickBlue} className='blue__section alterocio__card alterocio__card--blue alterocio__details'>
 
-      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>blue<p className='pt-4 text-base tracking-normal'>2019</p></summary>
+<summary className="bg-blue cursor-pointer p-12 flex flex-col justify-center items-center rounded-xl mb-2">
+        <h2 className="alter-font text-4xl md:text-5xl text-black">blue</h2>
+      </summary>
       <DynamicDetails
         title="inmune"
         handleClick={() => console.log("Clicked inmune")}

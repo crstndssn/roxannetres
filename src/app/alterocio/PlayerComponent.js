@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 import play from "./resources/vectors/play__button.svg";
 import pause from "./resources/vectors/pause__button.svg";
 import stop from "./resources/vectors/stop__button.svg";
-import Image from "next/image";
 
 const PlayerComponent = ({ currentSong, colors }) => {
   const audioRef = useRef(null);
@@ -13,10 +13,25 @@ const PlayerComponent = ({ currentSong, colors }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    if (audioRef.current && currentSong?.url) {
+      audioRef.current.src = currentSong.url; // Establecer explícitamente la URL
+      audioRef.current
+        .play()
+        .then(() => {
+          console.log("Reproducción automática iniciada");
+          setIsPlaying(true);
+        })
+        .catch((error) => {
+          console.error("Error al reproducir automáticamente el audio:", error);
+        });
+    }
+  }, [currentSong]);
+
+  useEffect(() => {
     const handleTimeUpdate = () => {
-      const currentTime = audioRef.current.currentTime;
-      const duration = audioRef.current.duration;
-      setProgress((currentTime / duration) * 100);
+      const currentTime = audioRef.current?.currentTime || 0;
+      const duration = audioRef.current?.duration || 0;
+      setProgress((currentTime / duration) * 100 || 0);
     };
 
     const audioElement = audioRef.current;
@@ -32,28 +47,47 @@ const PlayerComponent = ({ currentSong, colors }) => {
   }, []);
 
   const playAudio = () => {
-    audioRef.current.play();
-    setIsPlaying(true);
+    
+    if (audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => {
+          console.log("Reproducción iniciada");
+          setIsPlaying(true);
+        })
+        .catch((error) => {
+          console.error("Error al reproducir el audio:", error);
+        });
+    }
   };
 
   const pauseAudio = () => {
-    audioRef.current.pause();
-    setIsPlaying(false);
+    
+    if (audioRef.current) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
   };
 
   const stopAudio = () => {
-    audioRef.current.pause();
-    audioRef.current.currentTime = 0;
-    setIsPlaying(false);
-    setProgress(0);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsPlaying(false);
+      setProgress(0);
+    }
   };
 
   const handleProgressClick = (e) => {
+    if (!audioRef.current) return;
+
     const rect = e.target.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
-    const newTime = (clickX / rect.width) * audioRef.current.duration;
+    const duration = audioRef.current.duration || 0;
+    const newTime = (clickX / rect.width) * duration;
+
     audioRef.current.currentTime = newTime;
-    setProgress((newTime / audioRef.current.duration) * 100);
+    setProgress((newTime / duration) * 100 || 0);
   };
 
   return (
@@ -63,14 +97,15 @@ const PlayerComponent = ({ currentSong, colors }) => {
         "--primary-color": colors.primary,
         "--secondary-color": colors.secondary,
         position: "fixed",
-        bottom: 0,
-        width: "100%",
+        bottom: 15,
+        width: "92%",
         background: colors.secondary,
         color: colors.primary,
-        borderTop: `2px solid ${colors.primary}`,
+        border: `2px solid ${colors.primary}`,
         paddingTop: "13px",
         paddingBottom: "13px",
         textAlign: "center",
+        borderRadius: '0.75rem',
         zIndex: 1000,
       }}
     >
@@ -93,7 +128,6 @@ const PlayerComponent = ({ currentSong, colors }) => {
                   className="playercomponent__controls--play"
                   src={play}
                   alt="play"
-                  srcset=""
                 />
               </button>
             ) : (
@@ -112,7 +146,6 @@ const PlayerComponent = ({ currentSong, colors }) => {
                   className="playercomponent__controls--pause"
                   src={pause}
                   alt="pause"
-                  srcset=""
                 />
               </button>
             )}
@@ -132,7 +165,6 @@ const PlayerComponent = ({ currentSong, colors }) => {
                 className="playercomponent__controls--stop"
                 src={stop}
                 alt="stop"
-                srcset=""
               />
             </button>
           </div>
@@ -164,10 +196,10 @@ const PlayerComponent = ({ currentSong, colors }) => {
             </div>
           </div>
 
-          <audio ref={audioRef} src={currentSong.url} />
+          <audio ref={audioRef} preload="auto" />
         </div>
       ) : (
-        <h4>No hay ninguna canción seleccionada</h4>
+        <h4 className="text-black dark:text-white">No hay ninguna canción seleccionada</h4>
       )}
     </div>
   );

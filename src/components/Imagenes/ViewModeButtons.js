@@ -11,7 +11,7 @@ const ViewModeButtons = ({ setViewMode }) => {
   };
 
   return (
-    <div className="absolute top-[-13px] md:top-[-23px] right-[10px] z-10">
+    <div className="absolute top-[-10px] md:top-[10px] lg:top-[-23px] right-[10px] z-10">
       <button
         onClick={() => handleModeChange("list")}
         className={`text-base px-4 py-1 md:py-2 rounded-full transition-all border border-amarillo ${

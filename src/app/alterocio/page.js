@@ -49,218 +49,52 @@ const Page = () => {
   const [currentSong, setCurrentSong] = useState("");
   const [colors, setColors] = useState("");
 
-  // useEffect(() => {
-  //   console.log("state = unknown (until the callback is invoked)"); // Log initial state
-
-  //   setColors({
-  //     primary: "#ED0000",
-  //     secondary: "#000",
-  //   });
-
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       console.log("state = definitely signed in"); // Log when signed in
-  //       const userEmailString = user.email || ""; // Ensure user.email is not null
-  //       setCurrentEmail(userEmailString); // Set current email
-  //       console.log(userEmailString + " <- current authhhhhhh");
-  //       setUsuario(true);
-  //       if (user.email === "u20171157265@usco.edu.co") {
-  //         setAdmin(true);
-  //         setUserSub(true);
-  //         setUserEmail(userEmailString);
-  //       } else {
-  //         setAdmin(false);
-  //         setUserEmail(userEmailString);
-  //       }
-
-  //       store.collection("sub").onSnapshot((snapshot) => {
-  //         const userList = [];
-  //         snapshot.forEach((doc) => {
-  //           const userData = doc.data();
-  //           userList.push(userData);
-  //           if (userData.email === userEmailString) {
-  //             setUserSub(true);
-  //             console.log(currentEmail + " <- current");
-  //             console.log(userData.email + " eres premium");
-  //           } else {
-  //             console.log(currentEmail + " <- current");
-  //             console.log(userData.email + " no eres premium");
-  //           }
-  //         });
-  //         setUsers(userList);
-  //       });
-  //     } else {
-  //       console.log("state = definitely signed out");
-  //       setUsuario(false);
-  //       setAdmin(false);
-  //       setCurrentEmail(null);
-  //       setUserSub(false);
-  //       setUserEmail("");
-  //     }
-  //     setLoading(false);
-  //   });
-  // }, []);
-
   return (
     <div>
       <div className="alterocio">
-        {userSub == false ? (
-          <div className="pb-24">
-            {/* <div className="lock genesis">
-              <p className="lock__title">génesis</p>
-              <div className="lock__button">
-                <Link href="">próximamente</Link>
-              </div>
-            </div>
+        <div className="pb-20 px-4 md:px-0 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 
-            <div className="lock mercurio">
-              <p className="lock__title">mercurio</p>
-              <div className="lock__button">
-                <Link href="">próximamente</Link>
-              </div>
-            </div>
+          <Link href={'/alterocio/genesis'} className="bg-genesis flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">génesis</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2017</p>
+          </Link>
 
-            <div className="lock blue">
-              <p className="lock__title">blue</p>
-              <div className="lock__button">
-                <Link href="">próximamente</Link>
-              </div>
-            </div>
-            <div className="lock semillas">
-              <p className="lock__title">semillas</p>
-              <div className="lock__button">
-                <Link href="">próximamente</Link>
-              </div>
-            </div>
+          <Link href={'/alterocio/mercurio'} className="bg-mercurio flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">mercúrio</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2018</p>
+          </Link>
 
-            <div className="lock florecer">
-              <p className="lock__title">florecer</p>
-              <div className="lock__button">
-                <Link href="">próximamente</Link>
-              </div>
-            </div>
+          <Link href={'/alterocio/blue'} className="bg-blue flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">blue</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2019</p>
+          </Link>
 
-            <div className="lock viento">
-              <p className="lock__title">viento</p>
-              <div className="lock__button">
-                <Link href="">próximamente</Link>
-              </div>
-            </div>
+          <Link href={'/alterocio/semillas'} className="bg-semillas flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">semillas</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2020</p>
+          </Link>
 
-            <div className="lock futuro">
-              <p className="lock__title">futuro</p>
-              <div className="lock__button">
-                <Link href="">próximamente</Link>
-              </div>
-            </div> */}
+          <Link href={'/alterocio/florecer'} className="bg-florecer flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">florecer</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2021</p>
+          </Link>
 
+          <Link href={'/alterocio/viento'} className="bg-viento flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">viento</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2022</p>
+          </Link>
 
-            <Genesis
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
+          <Link href={'/alterocio/futuro'} className="bg-futuro flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">futuro</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2023</p>
+          </Link>
 
-            <Mercurio
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
+          <Link href={'/alterocio/ahora'} className="bg-ahora flex gap-3 justify-center items-center text-center flex-col py-10 rounded-xl">
+            <h1 className="alter-font text-black text-4xl tracking-tighter">ahora</h1>
+            <p className="text-black text-lg border px-4 py-0 w-fit tracking-tight rounded-full">2024</p>
+          </Link>
+        </div>
 
-            <Blue
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
-
-            <Semillas
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
-
-            <Florecer
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
-
-            {/* <Viento
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
-
-            <Futuro
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
-            <Ahora
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            /> */}
-
-          </div>
-        ) : (
-          <div>
-            <div className="lock genesis">
-              <p className="lock__title">génesis</p>
-              <div className="lock__button">
-                <Link href="">proximamente</Link>
-              </div>
-            </div>
-
-            <div className="lock mercurio">
-              <p className="lock__title">mercurio</p>
-              <div className="lock__button">
-                <Link href="">proximamente</Link>
-              </div>
-            </div>
-
-            <div className="lock blue">
-              <p className="lock__title">blue</p>
-              <div className="lock__button">
-                <Link href="">proximamente</Link>
-              </div>
-            </div>
-            <div className="lock semillas">
-              <p className="lock__title">semillas</p>
-              <div className="lock__button">
-                <Link href="">proximamente</Link>
-              </div>
-            </div>
-
-            <div className="lock florecer">
-              <p className="lock__title">florecer</p>
-              <div className="lock__button">
-                <Link href="">proximamente</Link>
-              </div>
-            </div>
-
-            <div className="lock viento">
-              <p className="lock__title">viento</p>
-              <div className="lock__button">
-                <Link href="">proximamente</Link>
-              </div>
-            </div>
-
-            <div className="lock futuro">
-              <p className="lock__title">futuro</p>
-              <div className="lock__button">
-                <Link href="">proximamente</Link>
-              </div>
-            </div>
-
-            <Ahora
-			className="mb-56"
-              id="dorado1"
-              setColors={setColors}
-              setCurrentSong={setCurrentSong}
-            />
-          </div>
-        )}
       </div>
       <PlayerComponent
         currentSong={currentSong}

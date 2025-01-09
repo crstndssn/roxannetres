@@ -8,9 +8,9 @@ import '../../../style/app.scss'
 
 import Card from '../Card'
 
-import inmune_n from '../resources/songs/inmune.mp3'
-import q_lindo_es_el_sol from '../resources/songs/que_lindo_es_el_sol.mp3'
-import wish_you_were_here from '../resources/songs/wish_you_were_here.mp3'
+import inmune_n from '@/public/songs/inmune.mp3'
+import q_lindo_es_el_sol from '@/public/songs/que_lindo_es_el_sol.mp3'
+import wish_you_were_here from '@/public/songs/wish_you_were_here.mp3'
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -58,8 +58,10 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
   };
 
   return (
-    <details onClick={handleClickAhora} className='genesis__section alterocio__card alterocio__card--ahora alterocio__details'>
-      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>ahora<p className='pt-4 text-base tracking-normal'>2024</p></summary>
+    <details open onClick={handleClickAhora} className='genesis__section alterocio__card alterocio__card--ahora alterocio__details'>
+      <summary className="bg-ahora cursor-pointer p-12 flex flex-col justify-center items-center rounded-xl mb-2">
+        <h2 className="alter-font text-4xl md:text-5xl text-black">ahora</h2>
+      </summary>
       {/* <DynamicDetails
         title="cielo"
         handleClick={() => console.log("Clicked Cielo")}

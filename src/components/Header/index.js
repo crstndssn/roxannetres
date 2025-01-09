@@ -42,7 +42,7 @@ const Header = () => {
 				</div>
 			</button>
 
-			<nav className=" w-max py-2 px-4 sm:px-8 border border-solid border-black dark:border-amarillo rounded-full font-medium  items-center flex  sm:hidden fixed top-[1.4rem] right-1/2 translate-x-1/2 bg-gold dark:bg-black z-50 transition-all ease duration-300 text-sm"
+			<nav className="w-max py-2 px-4 sm:px-8 border border-solid border-black dark:border-amarillo rounded-full font-medium  items-center flex  sm:hidden fixed top-[1.4rem] right-1/2 translate-x-1/2 bg-[#fff4e0] dark:bg-black z-50 transition-all ease duration-300 text-sm"
 				style={{
 					top: click ? "1.4rem" : "-5rem"
 				}}
@@ -62,8 +62,7 @@ const Header = () => {
 				</button>
 			</nav>
 
-			<nav className=" w-max py-3 px-8  border border-black dark:border-amarillo rounded-full font-medium  items-center hidden sm:flex
-       bg-[#fff4e0] dark:bg-black backdrop-blur-sm z-50">
+			<nav className=" w-max py-3 px-5 border border-black dark:border-amarillo rounded-xl font-medium  items-center hidden sm:flex bg-[#fff4e0] dark:bg-black backdrop-blur-sm z-50">
 				<Link href="/" className="mr-2 text-black dark:text-amarillo">inicio</Link>
 				<Link href="/imagenes" className="mx-2 text-black dark:text-amarillo">imágenes</Link>
 				<Link href="/categories/all" className="mx-2 text-black dark:text-amarillo">historias</Link>

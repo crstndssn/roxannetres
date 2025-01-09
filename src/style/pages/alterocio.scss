@@ -295,21 +295,21 @@
       }
     }
 
-    &--header {
-      margin-bottom: 0;
-      flex-direction: column;
-      list-style-type: square;
-      font-size: 33px;
-      font-weight: 400;
-      margin: 0;
-      line-height: 33px;
-      list-style: revert;
-      padding: 0.5rem;
-    }
-    &--header::marker {
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
+    // &--header {
+    //   margin-bottom: 0;
+    //   flex-direction: column;
+    //   list-style-type: square;
+    //   font-size: 33px;
+    //   font-weight: 400;
+    //   margin: 0;
+    //   line-height: 33px;
+    //   list-style: revert;
+    //   padding: 0.5rem;
+    // }
+    // &--header::marker {
+    //   font-size: 22px;
+    //   margin-bottom: 5px;
+    // }
 
     &--grid {
       display: grid;
@@ -379,7 +379,6 @@
 }
 
 .alterocio__card--momento[open] > .alterocio__card--header {
-  border-bottom: 2px white solid;
   color: $white;
   position: fixed;
   width: 100%;

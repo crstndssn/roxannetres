@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import "swiper/css/navigation"; 
+import "swiper/css/navigation";
 import ViewModeButtons from "./ViewModeButtons";
 import Card from "@/src/app/alterocio/Card";
 
@@ -62,11 +62,11 @@ const DynamicDetails = ({
       onClick={(e) => {
         handleClick(e);
       }}
-      className={className}
+      className="w-full alterocio__card--momento"
     >
-      <summary className="alterocio__card--header text-black dark:text-white">{title}</summary>
+      <summary className="alterocio__card--header border-b-2 border-black dark:border-white  cursor-pointer mb-3 pl-3 md:pl-0 text-left md:text-center text-black dark:text-white  marker:content-none text-2xl md:text-4xl py-3 alter-font">{title}</summary>
       <ViewModeButtons setViewMode={setViewMode} />
-      <div className={`${className}--grid h-full overflow-y-auto p-2`}>
+      <div className={`${className}--grid h-full overflow-y-auto mt-20 p-2`}>
         {isLoading ? (
           <div>Loading...</div>
         ) : viewMode === "grid" ? (
@@ -92,7 +92,7 @@ const DynamicDetails = ({
           </Swiper>
 
         ) : (
-          <div className="listView pt-14 columns-1 md:columns-2  gap-4 pb-[100px]">
+          <div className="listView pt-5 md:pt-14 columns-1 md:columns-2  gap-4 pb-[100px]">
             {data.map((item) => (
               <div
                 key={item.id}

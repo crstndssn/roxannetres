@@ -8,7 +8,7 @@ const Imagenes = () => {
         imágenes
       </h2>
 
-      <div className="w-max grid grid-cols-3 gap-5 md:gap-10 overflow-auto pb-3">
+      <div className="flex gap-5 md:gap-10 overflow-auto pb-3">
         <Link
           href={"/alterocio"}
           className="bg-black dark:bg-[#ED0000] text-[#ED0000] dark:text-black min-h-[180px] min-w-[280px] border-2 border-[#ED0000] dark:border-black rounded-lg p-7 flex justify-center items-center"

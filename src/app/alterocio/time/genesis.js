@@ -8,9 +8,9 @@ import "../../../style/app.scss";
 
 import Card from "../Card";
 
-import sulky from "../resources/songs/sulky.mp3";
-import centro__lamaquina from "../resources/songs/centro.mp3";
-import norte_lj from "../resources/songs/norte.mp3";
+// import sulky from "@/public/songs/sulky.mp3";
+import centro__lamaquina from "@/public/songs/centro.mp3";
+import norte_lj from "@/public/songs/norte.mp3";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -40,14 +40,14 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
   const handleClickSur = () => {
     setCurrentSong({
       title: "Sulky",
-      url: sulky,
+      url: '/songs/sulky.mp3',
     });
   };
 
   const handleClickCentro = () => {
     setCurrentSong({
       title: "Centro",
-      url: centro__lamaquina,
+      url: '/songs/centro.mp3',
     });
     setIsOpen(isOpen);
   };
@@ -55,22 +55,21 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
   const handleClickNorte = () => {
     setCurrentSong({
       title: "Norte",
-      url: norte_lj,
+      url: '/songs/norte.mp3',
     });
   };
 
   return (
-    <details
+    <details open
       onClick={handleClickGenesis}
-      className="genesis__section alterocio__card alterocio__card--genesis alterocio__details"
     >
-      <summary className="alterocio__card--summary alterocio__summary flex items-center gap-3">
-        génesis <p className="pt-4 text-base tracking-normal">2017</p>
+      <summary className="bg-genesis cursor-pointer p-12 flex flex-col justify-center items-center rounded-xl mb-2">
+        <h2 className="alter-font text-5xl text-black">génesis</h2>
       </summary>
       <DynamicDetails
         title="sur"
         handleClick={handleClickSur}
-        className="border-b-2 border-black dark:border-white alterocio__card--momento"
+        className="w-full alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2017genesis"
@@ -79,7 +78,7 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
       <DynamicDetails
         title="centro"
         handleClick={handleClickCentro}
-        className="border-b-2 border-black dark:border-white alterocio__card--momento"
+        className="w-full alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2017genesis"
@@ -88,7 +87,6 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
       <DynamicDetails
         title="norte"
         handleClick={handleClickNorte}
-        className="border-b-2 border-black dark:border-white alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2017genesis"

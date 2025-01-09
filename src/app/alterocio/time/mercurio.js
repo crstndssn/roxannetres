@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 import '../../../style/app.scss'
 
-import antes_de_morir from '../resources/songs/antes_de_morir.mp3'
-import entre_las_luces from '../resources/songs/entre_las_luces.mp3'
-import no_soy_un_extraño from '../resources/songs/no_soy_un_extraño.mp3'
-import shiva_song from '../resources/songs/shiva.mp3'
+import antes_de_morir from '@/public/songs/antes_de_morir.mp3'
+import entre_las_luces from '@/public/songs/entre_las_luces.mp3'
+import no_soy_un_extraño from '@/public/songs/no_soy_un_extraño.mp3'
+import shiva_song from '@/public/songs/shiva.mp3'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -66,9 +66,11 @@ const Mercurio = ({ setCurrentSong, setColors, id }) => {
   };
 
   return (
-    <details onClick={handleClickMercurio} className='mercurio__section alterocio__card alterocio__card--mercurio alterocio__details'>
+    <details open onClick={handleClickMercurio} className='mercurio__section alterocio__card alterocio__card--mercurio alterocio__details'>
 
-      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>mercúrio<p className='pt-4 text-base tracking-normal'>2018</p></summary>
+      <summary className="bg-mercurio cursor-pointer p-12 flex flex-col justify-center items-center rounded-xl mb-2">
+        <h2 className="alter-font text-4xl md:text-5xl text-black">mercúrio</h2>
+      </summary>
 
       <DynamicDetails
         title="antes de morir"

@@ -9,9 +9,9 @@ import '../../../style/app.scss'
 import Card from '../Card'
 
 
-import sulky from '../resources/songs/sulky.mp3'
-import centro__lamaquina from '../resources/songs/centro.mp3'
-import norte_lj from '../resources/songs/norte.mp3'
+import sulky from '@/public/songs/sulky.mp3'
+import centro__lamaquina from '@/public/songs/centro.mp3'
+import norte_lj from '@/public/songs/norte.mp3'
 
 
 
@@ -90,9 +90,11 @@ const Futuro = ({ setCurrentSong, setColors, id }) => {
   };
 
   return (
-    <details onClick={handleClickAhora} className='futuro__section alterocio__card alterocio__card--futuro alterocio__details'>
-
-      <summary className='alterocio__card--summary alterocio__summary flex items-center gap-3'>futuro<p className='pt-4 text-base tracking-normal'>2023</p></summary>
+    <details open onClick={handleClickAhora} className='futuro__section alterocio__card alterocio__card--futuro alterocio__details'>
+      
+      <summary className="bg-futuro cursor-pointer p-12 flex flex-col justify-center items-center rounded-xl mb-2">
+        <h2 className="alter-font text-4xl md:text-5xl text-black">futuro</h2>
+      </summary>
 
       <DynamicDetails
         title="afuera"
