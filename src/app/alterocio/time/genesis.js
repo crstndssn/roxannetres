@@ -8,10 +8,6 @@ import "../../../style/app.scss";
 
 import Card from "../Card";
 
-// import sulky from "@/public/songs/sulky.mp3";
-import centro__lamaquina from "@/public/songs/centro.mp3";
-import norte_lj from "@/public/songs/norte.mp3";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -40,14 +36,14 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
   const handleClickSur = () => {
     setCurrentSong({
       title: "Sulky",
-      url: '/songs/sulky.mp3',
+      url: '/songs/alterocio/sulky.mp3',
     });
   };
 
   const handleClickCentro = () => {
     setCurrentSong({
       title: "Centro",
-      url: '/songs/centro.mp3',
+      url: '/songs/alterocio/centro.mp3',
     });
     setIsOpen(isOpen);
   };
@@ -55,7 +51,7 @@ const Genesis = ({ setCurrentSong, setColors, id }) => {
   const handleClickNorte = () => {
     setCurrentSong({
       title: "Norte",
-      url: '/songs/norte.mp3',
+      url: '/songs/alterocio/norte.mp3',
     });
   };
 

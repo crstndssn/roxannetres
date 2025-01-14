@@ -9,26 +9,14 @@ import '../../../style/app.scss'
 import Card from '../Card'
 
 
-import sulky from '@/public/songs/sulky.mp3'
-import centro__lamaquina from '@/public/songs/centro.mp3'
-import norte_lj from '@/public/songs/norte.mp3'
-
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
-// Si necesitas otros módulos (como Navigation, Pagination, etc.), importa también su CSS
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import ViewModeButtons from '@/src/components/Imagenes/ViewModeButtons';
 import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
-
-
-import inmune_n from '@/public/songs/inmune.mp3'
-import q_lindo_es_el_sol from '@/public/songs/que_lindo_es_el_sol.mp3'
-import wish_you_were_here from '@/public/songs/wish_you_were_here.mp3'
 
 
 const Blue = ({ setCurrentSong, setColors, id }) => {
@@ -49,7 +37,7 @@ const Blue = ({ setCurrentSong, setColors, id }) => {
   const handleClickInmune = () => {
     setCurrentSong({
       title: 'inmune',
-      url: inmune_n
+      url: '/songs/alterocio/inmune.mp3'
     });
     setIsOpen(isOpen);
   };
@@ -57,14 +45,14 @@ const Blue = ({ setCurrentSong, setColors, id }) => {
   const handleClickSol = () => {
     setCurrentSong({
       title: 'que lindo es el sol',
-      url: q_lindo_es_el_sol
+      url: '/songs/alterocio/que_lindo_es_el_sol.mp3'
     });
   };
 
   const handleClickWish = () => {
     setCurrentSong({
       title: 'wish you were here',
-      url: wish_you_were_here
+      url: '/songs/alterocio/wish_you_were_here.mp3'
     });
   };
 
@@ -76,7 +64,7 @@ const Blue = ({ setCurrentSong, setColors, id }) => {
       </summary>
       <DynamicDetails
         title="inmune"
-        handleClick={() => console.log("Clicked inmune")}
+        handleClick={handleClickInmune}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -85,7 +73,7 @@ const Blue = ({ setCurrentSong, setColors, id }) => {
       />
       <DynamicDetails
         title="el sol"
-        handleClick={() => console.log("Clicked el sol")}
+        handleClick={handleClickSol}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -94,7 +82,7 @@ const Blue = ({ setCurrentSong, setColors, id }) => {
       />
       <DynamicDetails
         title="wish you were here"
-        handleClick={() => console.log("clicked wish you were here")}
+        handleClick={handleClickWish}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}

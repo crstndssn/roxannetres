@@ -9,12 +9,6 @@ import '../../../style/app.scss'
 import Card from '../Card'
 
 
-import sulky from '@/public/songs/sulky.mp3'
-import centro__lamaquina from '@/public/songs/centro.mp3'
-import norte_lj from '@/public/songs/norte.mp3'
-
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -40,25 +34,25 @@ const Florecer = ({ setCurrentSong, setColors, id }) => {
     });
   };
 
-  const handleClickMomento = () => {
+  const handleClickCalavero = () => {
     setCurrentSong({
-      title: 'Inmune',
-      url: inmune_n
+      title: 'calavero',
+      url: '/songs/alterocio/calavero.mp3'
     });
     setIsOpen(isOpen);
   };
 
-  const handleClickParaiso = () => {
+  const handleClickLlamas = () => {
     setCurrentSong({
-      title: 'Inmune',
-      url: q_lindo_es_el_sol
+      title: 'en llamas',
+      url: '/songs/alterocio/enllamas.mp3'
     });
   };
 
-  const handleClickSur = () => {
+  const handleClickPiel = () => {
     setCurrentSong({
-      title: 'Sulky',
-      url: sulky
+      title: 'salva tu amor',
+      url: '/songs/alterocio/salva-tu-amor.mp3'
     });
   };
 
@@ -68,17 +62,17 @@ const Florecer = ({ setCurrentSong, setColors, id }) => {
         <h2 className="alter-font text-4xl md:text-5xl text-black">florecer</h2>
       </summary>
       <DynamicDetails
-        title="curandera"
-        handleClick={handleClickSur}
+        title="calavero"
+        handleClick={handleClickCalavero}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2021florecer"
-        folderName="curandera"
+        folderName="calavero"
       />
       <DynamicDetails
         title="en llamas"
-        handleClick={() => console.log("Clicked Cielo")}
+        handleClick={handleClickLlamas}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -87,7 +81,7 @@ const Florecer = ({ setCurrentSong, setColors, id }) => {
       />
       <DynamicDetails
         title="salva tu piel"
-        handleClick={() => console.log("Clicked Cielo")}
+        handleClick={handleClickPiel}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}

@@ -8,13 +8,6 @@ import '../../../style/app.scss'
 
 import Card from '../Card'
 
-
-import sulky from '@/public/songs/sulky.mp3'
-import centro__lamaquina from '@/public/songs/centro.mp3'
-import norte_lj from '@/public/songs/norte.mp3'
-
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -28,34 +21,6 @@ import DynamicDetails from '@/src/components/Imagenes/DynamicDetails';
 
 const Viento = ({ setCurrentSong, setColors, id }) => {
 
-  const [sur, setSur] = useState('')
-  const [qlees, setQlees] = useState('')
-  const [wywh, setWywh] = useState('')
-
-  const [imageSlider, setImageSlider] = useState([])
-  const [textPost, setTextPost] = useState('')
-
-  useEffect(() => {
-    const sur = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "sur").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setSur(newArray)
-    }
-    sur()
-    const norte = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "norte").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setNorte(newArray)
-    }
-    norte()
-    const centro = async () => {
-      const { docs } = await store.collection('new').where('title', '==', "centro").get()
-      const newArray = docs.map(item => ({ id: item.id, ...item.data() }))
-      setCentro(newArray)
-    }
-    centro()
-  }, [])
-
   // GRID MODE
   const [isOpen, setIsOpen] = useState(false);
   const [viewMode, setViewMode] = useState("list");
@@ -68,18 +33,31 @@ const Viento = ({ setCurrentSong, setColors, id }) => {
 		});
 	};
 
-	const handleClickMomento = () => {
+	const handleClickUn = () => {
     setCurrentSong({
-      title: 'Inmune',
-      url: inmune_n
+      title: 'uno',
+      url: '/songs/alterocio/uno.mp3'
     });
-		setIsOpen(isOpen);
   };
 
-	const handleClickSur = () => {
+	const handleClickDo = () => {
     setCurrentSong({
-      title: 'Inmune',
-      url: q_lindo_es_el_sol
+      title: 'dos días en la vida',
+      url: '/songs/alterocio/dos-dias-en-la-vida.mp3'
+    });
+  };
+
+	const handleClickTre = () => {
+    setCurrentSong({
+      title: 'otro atardecer',
+      url: '/songs/alterocio/otro-atardecer.mp3'
+    });
+  };
+
+	const handleClickCua = () => {
+    setCurrentSong({
+      title: 'la realidad',
+      url: '/songs/alterocio/la-realidad.mp3'
     });
   };
 
@@ -90,40 +68,40 @@ const Viento = ({ setCurrentSong, setColors, id }) => {
         <h2 className="alter-font text-4xl md:text-5xl text-black">viento</h2>
       </summary>
       <DynamicDetails
-        title="refugios"
-        handleClick={() => console.log("Clicked Cielo")}
+        title="un"
+        handleClick={handleClickUn}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        basePath="alterocio/2020semillas"
-        folderName="refugios"
+        basePath="alterocio/2022viento"
+        folderName="un"
       />
       <DynamicDetails
-        title="refugios"
-        handleClick={() => console.log("Clicked Cielo")}
+        title="do"
+        handleClick={handleClickDo}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        basePath="alterocio/2020semillas"
-        folderName="refugios"
+        basePath="alterocio/2022viento"
+        folderName="do"
       />
       <DynamicDetails
-        title="refugios"
-        handleClick={() => console.log("Clicked Cielo")}
+        title="tre"
+        handleClick={handleClickTre}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        basePath="alterocio/2020semillas"
-        folderName="refugios"
+        basePath="alterocio/2022viento"
+        folderName="tre"
       />
       <DynamicDetails
-        title="refugios"
-        handleClick={() => console.log("Clicked Cielo")}
+        title="cua"
+        handleClick={handleClickCua}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
-        basePath="alterocio/2020semillas"
-        folderName="refugios"
+        basePath="alterocio/2022viento"
+        folderName="cua"
       />
     </details>
   )

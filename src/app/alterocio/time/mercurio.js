@@ -6,11 +6,6 @@ import Link from 'next/link';
 
 import '../../../style/app.scss'
 
-import antes_de_morir from '@/public/songs/antes_de_morir.mp3'
-import entre_las_luces from '@/public/songs/entre_las_luces.mp3'
-import no_soy_un_extraño from '@/public/songs/no_soy_un_extraño.mp3'
-import shiva_song from '@/public/songs/shiva.mp3'
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -39,7 +34,7 @@ const Mercurio = ({ setCurrentSong, setColors, id }) => {
   const handleClickMorir = () => {
     setCurrentSong({
       title: 'antes de morir',
-      url: antes_de_morir
+      url: '/songs/alterocio/antes_de_morir.mp3'
     });
     setIsOpen(isOpen);
   };
@@ -47,21 +42,21 @@ const Mercurio = ({ setCurrentSong, setColors, id }) => {
   const handleClickLuces = () => {
     setCurrentSong({
       title: 'entre las luces',
-      url: entre_las_luces
+      url: '/songs//alterocio/entre_las_luces.mp3'
     });
   };
 
   const handleClickExtrano = () => {
     setCurrentSong({
       title: 'no soy un extraño',
-      url: no_soy_un_extraño
+      url: '/songs//alterocio/no_soy_un_extraño.mp3'
     });
   };
 
   const handleClickShiva = () => {
     setCurrentSong({
       title: 'shiva',
-      url: shiva_song
+      url: '/songs//alterocio/shiva.mp3'
     });
   };
 
@@ -84,7 +79,7 @@ const Mercurio = ({ setCurrentSong, setColors, id }) => {
 
       <DynamicDetails
         title="entre las luces"
-        handleClick={() => console.log("Clicked Cielo")}
+        handleClick={handleClickLuces}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -94,7 +89,7 @@ const Mercurio = ({ setCurrentSong, setColors, id }) => {
 
       <DynamicDetails
         title="no soy un extraño"
-        handleClick={() => console.log("Clicked Cielo")}
+        handleClick={handleClickExtrano}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -104,7 +99,7 @@ const Mercurio = ({ setCurrentSong, setColors, id }) => {
 
       <DynamicDetails
         title="shiva"
-        handleClick={() => console.log("Clicked shiva")}
+        handleClick={handleClickShiva}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}

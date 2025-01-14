@@ -9,12 +9,6 @@ import '../../../style/app.scss'
 import Card from '../Card'
 
 
-import sulky from '@/public/songs/sulky.mp3'
-import centro__lamaquina from '@/public/songs/centro.mp3'
-import norte_lj from '@/public/songs/norte.mp3'
-
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -43,7 +37,7 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
   const handleClickRefugios = () => {
     setCurrentSong({
       title: 'fuego en el mar',
-      url: inmune_n
+      url: '/songs/alterocio/fuego-en-el-mar.mp3'
     });
     setIsOpen(isOpen);
   };
@@ -51,7 +45,7 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
   const handleClickEfimero = () => {
     setCurrentSong({
       title: 'seres extraños',
-      url: inmune_n
+      url: '/songs/alterocio/seres-extraños.mp3'
     });
     setIsOpen(isOpen);
   };
@@ -59,14 +53,14 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
   const handleClickMar = () => {
     setCurrentSong({
       title: 'Mar',
-      url: q_lindo_es_el_sol
+      url: '/songs/alterocio/mar.mp3'
     });
   };
 
   const handleClickQuedandote = () => {
     setCurrentSong({
       title: 'quedándote o yéndote',
-      url: wish_you_were_here
+      url: '/songs/alterocio/quedandote-o-yendote.mp3'
     });
   };
 
@@ -77,7 +71,7 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
       </summary>
       <DynamicDetails
         title="refugios"
-        handleClick={() => console.log("Clicked Cielo")}
+        handleClick={handleClickRefugios}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -85,8 +79,8 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
         folderName="refugios"
       />
       <DynamicDetails
-        title="efimero anacronico"
-        handleClick={() => console.log("Clicked Cielo")}
+        title="efímero anacrónico"
+        handleClick={handleClickEfimero}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -95,7 +89,7 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
       />
       <DynamicDetails
         title="mar"
-        handleClick={() => console.log("Clicked Cielo")}
+        handleClick={handleClickMar}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -103,8 +97,8 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
         folderName="mar"
       />
       <DynamicDetails
-        title="quedandote"
-        handleClick={() => console.log("Clicked Cielo")}
+        title="quedándote"
+        handleClick={handleClickQuedandote}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -115,4 +109,4 @@ const Semillas = ({ setCurrentSong, setColors, id }) => {
   )
 }
 
-export default Semillas 
+export default Semillas

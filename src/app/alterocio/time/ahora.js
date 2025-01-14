@@ -8,10 +8,6 @@ import '../../../style/app.scss'
 
 import Card from '../Card'
 
-import inmune_n from '@/public/songs/inmune.mp3'
-import q_lindo_es_el_sol from '@/public/songs/que_lindo_es_el_sol.mp3'
-import wish_you_were_here from '@/public/songs/wish_you_were_here.mp3'
-
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -35,25 +31,32 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
   };
 
   // MUSIC
-  const handleClickSur = () => {
+  const handleClickCielo = () => {
     setCurrentSong({
-      title: 'Inmune',
-      url: inmune_n
+      title: 'Lago en el cielo',
+      url: '/songs/alterocio/cielo.mp3'
+    });
+  };
+
+  const handleClickMomentos = () => {
+    setCurrentSong({
+      title: 'Momentos',
+      url: '/songs/alterocio/elvis.mp3'
     });
     setIsOpen(isOpen);
   };
 
   const handleClickParaiso = () => {
     setCurrentSong({
-      title: 'Inmune',
-      url: q_lindo_es_el_sol
+      title: 'DtMF',
+      url: '/songs/alterocio/dtmf.mp3'
     });
   };
 
-  const handleClickCielo = () => {
+  const handleClickFronteras = () => {
     setCurrentSong({
-      title: 'Inmune',
-      url: inmune_n
+      title: 'Fronteras',
+      url: '/songs/alterocio/pasajera-en-trance.mp3'
     });
   };
 
@@ -62,9 +65,9 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
       <summary className="bg-ahora cursor-pointer p-12 flex flex-col justify-center items-center rounded-xl mb-2">
         <h2 className="alter-font text-4xl md:text-5xl text-black">ahora</h2>
       </summary>
-      {/* <DynamicDetails
+      <DynamicDetails
         title="cielo"
-        handleClick={() => console.log("Clicked Cielo")}
+        handleClick={handleClickCielo}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -73,7 +76,7 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
       />
       <DynamicDetails
         title="fronteras"
-        handleClick={() => console.log("Clicked fronteras")}
+        handleClick={handleClickFronteras}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -82,16 +85,16 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
       />
       <DynamicDetails
         title="momentos"
-        handleClick={() => console.log("Clicked momentos")}
+        handleClick={handleClickMomentos}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}
         basePath="alterocio/2024ahora"
         folderName="momentos"
-      /> */}
+      />
       <DynamicDetails
         title="paraíso"
-        handleClick={() => console.log("Clicked paraiso")}
+        handleClick={handleClickParaiso}
         className="alterocio__card--border alterocio__card--momento"
         viewMode={viewMode}
         setViewMode={setViewMode}

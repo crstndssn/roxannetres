@@ -15,7 +15,7 @@ module.exports = {
         accentDark: "#ffdb4d",
         gray: "#747474",
 				amarillo: "#FFFFF9",
-        gold: "#FFFCD5",
+        gold: "#fff4e0",
         amarillito: "#fff4e0",
         genesis: "#bd1616",
         mercurio: "#8E4FD1",
