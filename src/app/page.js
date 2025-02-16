@@ -7,6 +7,7 @@ import FeaturedPosts from "@/src/components/Home/FeaturedPosts"
 import RecentPosts from '../components/Home/RecentPosts'
 import Imagenes from '../components/Home/Imagenes'
 import Historias from '../components/Blog/Historias'
+import Footer from '../components/Footer'
 
 export default function Home() {
 	return (
@@ -14,6 +15,7 @@ export default function Home() {
 			<HomeCoverSection blogs={allBlogs} />
 			<Imagenes />
 			<Historias blogs={allBlogs} />
+			<Footer />
 		</main>
 	)
 }

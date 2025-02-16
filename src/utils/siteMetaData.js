@@ -1,7 +1,7 @@
 const siteMetadata = {
 	title: 'roxaaanne',
 	author: 'cristian dussán',
-	headerTitle: 'no te robes a mi chicx',
+	headerTitle: 'interferencia del sistema, recopilacion visual de la vida, directo desde el epicentro de la caries, un abrazo del sol',
 	description: 'interferencia del sistema',
 	language: 'es-cp',
 	theme: 'system', // system, dark or light

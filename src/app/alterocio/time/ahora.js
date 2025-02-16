@@ -34,7 +34,7 @@ const Ahora = ({ setCurrentSong, setColors, id }) => {
   const handleClickCielo = () => {
     setCurrentSong({
       title: 'Lago en el cielo',
-      url: '/songs/alterocio/cielo.mp3'
+      url: '/songs/alterocio/lago-en-el-cielo.mp3'
     });
   };
 

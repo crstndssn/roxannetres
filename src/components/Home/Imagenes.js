@@ -30,6 +30,24 @@ const Imagenes = () => {
             roxy
           </h2>
         </div>
+
+    {/* <div className="bg-[#FFE6F9] border-2 border-[#ED0000] min-h-[180px] rounded-lg p-7 flex justify-center items-center opacity-50">
+          <h2 className="roxy-font  m-0 mb-7 text-[90px] leading-[20px] uppercase text-[#ED0000]">
+            <span className="bg">si</span><span className="">embra</span>
+          </h2>
+        </div> */}
+
+      {/*       <div className="bg-[#FFE6F9] border-2 border-[#ED0000] min-h-[180px] rounded-lg p-7 flex justify-center items-center opacity-50">
+          <h2 className="roxy-font  m-0 mb-7 text-[90px] leading-[20px] uppercase text-[#ED0000]">
+            selecto huila
+          </h2>
+        </div>
+
+        <div className="bg-[#FFE6F9] border-2 border-[#ED0000] min-h-[180px] rounded-lg p-7 flex justify-center items-center opacity-50">
+          <h2 className="roxy-font  m-0 mb-7 text-[90px] leading-[20px] uppercase text-[#ED0000]">
+            bejuco
+          </h2>
+        </div> */}
       </div>
       <Link
         href={`/imagenes`}
